@@ -1,17 +1,13 @@
-
-
-
-
 <script>
 import axios from 'axios';
 import SingleApartment from '../components/SingleApartment.vue';
 import SearchBar from '../components/SearchBar.vue';
 
 export default {
-    name: 'ApartmentList', 
+    name: 'ApartmentList',
 
     components: {
-        SingleApartment, 
+        SingleApartment,
         SearchBar,
     },
 
@@ -19,7 +15,7 @@ export default {
         return {
             apartments: [], // Array per memorizzare gli appartamenti ottenuti dalla ricerca
             loading: false, // Flag per indicare se i dati stanno ancora caricando
-        }; 
+        };
     },
 
     methods: {
@@ -54,9 +50,16 @@ export default {
 </script>
 
 <template>
-    <div class="container">
+    <div class="container ">
         <SearchBar @search-apartments="searchApartments"></SearchBar>
         <h2>Tutti gli appartamenti</h2>
+        <!-- Messaggio per il numero di appartamenti trovati -->
+        <p v-if="apartments.length === 1" class="text-info">
+            E' stato trovato {{ apartments.length }} appartamento.
+        </p>
+        <p v-else-if="apartments.length > 1" class="text-info">
+            Sono stati trovati {{ apartments.length }} appartamenti.
+        </p>
         <div class="row row-cols-4 my-5">
             <SingleApartment v-for="apartment in apartments" :key="apartment.id" :apartmentInfo="apartment"
                 :loading="loading"></SingleApartment>
@@ -65,4 +68,3 @@ export default {
 </template>
 
 <style scoped></style>
-

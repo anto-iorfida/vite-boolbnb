@@ -63,7 +63,7 @@ export default {
 </script>
 
 <template>
-    <div class="search-bar-container text-center bg-dark p-4">
+    <div class="search-bar-container text-center bg-dark p-4 mx-auto custom">
         <label class="form-label text-white"><strong>Cerca il tuo appartamento</strong></label>
         <input type="text" class="form-control" id="address" name="address" v-model="query" @input="searchAddress"
             autocomplete="off" />
@@ -73,6 +73,7 @@ export default {
                 @click="selectSuggestion(suggestion)">
                 {{ suggestion.address.freeformAddress }}
             </li>
+            
         </ul>
 
         <label for="radius" class="form-label text-white mt-2">Raggio (km)</label>
@@ -86,5 +87,11 @@ export default {
 <style lang="scss" scoped>
 .list-group-item-action {
     cursor: pointer;
+}
+.custom {
+    max-width: 50%;
+    position: relative;
+    top: -110px;
+    border-radius:30px ;
 }
 </style>
