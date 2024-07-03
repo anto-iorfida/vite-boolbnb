@@ -41,14 +41,17 @@ export default {
     <div class="container">
         <SearchBar></SearchBar>
         
-        
-        <h2>tutti gli appartamenti</h2>
+        <h2>Tutti gli appartamenti</h2>
 
-        <div class="row row-cols-4 my-5">
-            <SingleApartment v-for="apartment in apartments" :key="apartment.id" :apartmentInfo="apartment"
-                :loading="loading"></SingleApartment>
+        <div class="row my-5">
+            <SingleApartment 
+                v-for="apartment in apartments" 
+                :key="apartment.id" 
+                :apartmentInfo="apartment" 
+                :loading="loading" 
+                class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"
+            ></SingleApartment>
         </div>
-
     </div>
 </template>
 
