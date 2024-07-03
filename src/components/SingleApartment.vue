@@ -36,7 +36,9 @@ export default {
             <div class="card-body">
                 <h4 class="card-title">{{ apartmentInfo.title }}</h4>
                 
-                {{ console.log(this.apartmentInfo)}}
+                {{ console.log(this.apartmentInfo ,'guardare qua')}}
+                <p>{{ apartmentInfo.latitude }}</p>
+                <p>{{ apartmentInfo.longitude }}</p>
 
                 <router-link :to="{ name: 'details-apartment', params: { slug: apartmentInfo.slug } }"
                     class="btn btn-primary">Info</router-link>
