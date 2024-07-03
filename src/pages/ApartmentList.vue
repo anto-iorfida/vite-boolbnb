@@ -13,6 +13,7 @@ export default {
         return {
             apartments: [],
             loading: false,
+            cordinate:''
         };
     },
     methods: {
@@ -53,3 +54,4 @@ export default {
 </template>
 
 <style lang="scss" scoped></style>
+

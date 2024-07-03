@@ -46,7 +46,7 @@ export default {
         },
 
         getSearchApartment() {
-            
+            // ******
         }
     }
 }
@@ -76,3 +76,4 @@ export default {
     cursor: pointer;
 }
 </style>
+
