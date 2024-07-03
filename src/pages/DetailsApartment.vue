@@ -28,56 +28,27 @@ export default {
 <template>
     <div class="container">
         <div v-if="apartment">
-            <div class="card">
-                <div class="card-header">
+            <div class="card mt-5">
+                <div class="card-header text-center">
                     <h3>{{ apartment.title }}</h3>
                 </div>
                 <div class="card-body">
                     <div v-if="apartment.thumb">
                         <img :src="apartment.thumb" alt="thumb" style="max-width: 100%; height: auto;">
                     </div>
-
-                    <blockquote class="blockquote mb-0">
+                    <blockquote class="blockquote mt-4">
                         <p v-if="apartment.description">
                             <strong>Descrizione:</strong> {{ apartment.description }}
                         </p>
-
-                        <p>
-                            <strong>Slug:</strong> {{ apartment.slug }}
-                        </p>
-
-                        <p>
-                            <strong>Data di Creazione:</strong> {{ apartment.created_at }}
-                        </p>
-
-                        <p>
-                            <strong>Data di Modifica:</strong> {{ apartment.updated_at }}
-                        </p>
-
-                        <p>
-                            <strong>Numero di Camere:</strong> {{ apartment.number_rooms }}
-                        </p>
-
-                        <p>
-                            <strong>Numero di Letti:</strong> {{ apartment.number_beds }}
-                        </p>
-
-                        <p>
-                            <strong>Numero di Bagni:</strong> {{ apartment.number_baths }}
-                        </p>
-
-                        <p>
-                            <strong>Metri Quadrati:</strong> {{ apartment.square_meters }}
-                        </p>
-
-                        <p>
-                            <strong>Indirizzo:</strong> {{ apartment.address }}
-                        </p>
-
-                        <p>
-                            <strong>Visibilità:</strong> {{ apartment.visibility ? 'Visibile' : 'Non Visibile' }}
-                        </p>
-                        
+                        <p><strong>Slug:</strong> {{ apartment.slug }}</p>
+                        <p><strong>Data di Creazione:</strong> {{ apartment.created_at }}</p>
+                        <p><strong>Data di Modifica:</strong> {{ apartment.updated_at }}</p>
+                        <p><strong>Numero di Camere:</strong> {{ apartment.number_rooms }}</p>
+                        <p><strong>Numero di Letti:</strong> {{ apartment.number_beds }}</p>
+                        <p><strong>Numero di Bagni:</strong> {{ apartment.number_baths }}</p>
+                        <p><strong>Metri Quadrati:</strong> {{ apartment.square_meters }}</p>
+                        <p><strong>Indirizzo:</strong> {{ apartment.address }}</p>
+                        <p><strong>Visibilità:</strong> {{ apartment.visibility ? 'Visibile' : 'Non Visibile' }}</p>
                         <div v-if="apartment.images && apartment.images.length > 0">
                             <h5>Immagini:</h5>
                             <div v-for="(image, index) in apartment.images" :key="index">
