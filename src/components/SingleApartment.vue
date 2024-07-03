@@ -14,11 +14,8 @@ export default {
         }
     },
     methods: {
-        truncateText(text) {
-            if (text && text.length > 100) {
-                return text.substr(0, 100) + '...';
-            }
-            return text;
+        contactOwner() {
+            this.$router.push({ name: 'contact-owner', params: { apartmentId: this.apartmentInfo.id } });
         }
     }
 }
@@ -32,13 +29,15 @@ export default {
                 <img :src="apartmentInfo.thumb" alt="Thumbnail" class="img-fluid mb-3" style="max-width: 100%; height: auto;">
                 <div class="mt-auto">
                     <router-link :to="{ name: 'details-apartment', params: { slug: apartmentInfo.slug } }"
-                        class="btn btn-primary w-100">Info</router-link>
+                        class="btn btn-primary w-100 mb-2">Info</router-link>
+                    <button @click="contactOwner" class="btn btn-secondary w-100">Contatta Subito</button>
                 </div>
             </div>
         </div>
         <Loader v-else />
     </div>
 </template>
+
 
 <style scoped>
 /* Stili specifici per il componente se necessario */
