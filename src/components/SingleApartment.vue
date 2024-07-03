@@ -29,14 +29,11 @@ export default {
         <div v-if="!loading" class="card my-3" style="width: 18rem;">
             <div class="card-body">
                 <h4 class="card-title">{{ apartmentInfo.title }}</h4>
-                
                 <img :src="apartmentInfo.thumb" alt="Thumbnail" style="max-width: 100%; height: auto;">
-
                 <router-link :to="{ name: 'details-apartment', params: { slug: apartmentInfo.slug } }"
                     class="btn btn-primary">Info</router-link>
             </div>
         </div>
-
         <Loader v-else />
     </div>
 </template>
