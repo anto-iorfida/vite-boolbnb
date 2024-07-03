@@ -32,6 +32,9 @@ export default {
                 
                 <img :src="apartmentInfo.thumb" alt="Thumbnail" style="max-width: 100%; height: auto;">
 
+                <p>{{ apartmentInfo.latitude }}</p>
+                <p>{{ apartmentInfo.longitude }}</p>
+
                 <router-link :to="{ name: 'details-apartment', params: { slug: apartmentInfo.slug } }"
                     class="btn btn-primary">Info</router-link>
             </div>
