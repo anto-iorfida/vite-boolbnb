@@ -33,6 +33,10 @@ export default {
                     <h3>{{ apartment.title }}</h3>
                 </div>
                 <div class="card-body">
+                    <div v-if="apartment.thumb">
+                        <img :src="apartment.thumb" alt="thumb" style="max-width: 100%; height: auto;">
+                    </div>
+
                     <blockquote class="blockquote mb-0">
                         <p v-if="apartment.description">
                             <strong>Descrizione:</strong> {{ apartment.description }}
@@ -73,6 +77,13 @@ export default {
                         <p>
                             <strong>Visibilità:</strong> {{ apartment.visibility ? 'Visibile' : 'Non Visibile' }}
                         </p>
+                        
+                        <div v-if="apartment.images && apartment.images.length > 0">
+                            <h5>Immagini:</h5>
+                            <div v-for="(image, index) in apartment.images" :key="index">
+                                <img :src="image.url" alt="Apartment Image" style="max-width: 100%; height: auto;">
+                            </div>
+                        </div>
                     </blockquote>
                 </div>
             </div>

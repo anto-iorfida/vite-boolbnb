@@ -13,41 +13,34 @@ export default {
             required: true
         }
     },
-    data() {
-        return {
-
-        }
-    },
     methods: {
-        troncateText(text) {
-
-            if (text.length > 100) {
-                return text.substr(0, 99) + '...';
+        truncateText(text) {
+            if (text && text.length > 100) {
+                return text.substr(0, 100) + '...';
             }
+            return text;
         }
     }
 }
 </script>
 
 <template>
-
     <div class="col">
         <div v-if="!loading" class="card my-3" style="width: 18rem;">
             <div class="card-body">
                 <h4 class="card-title">{{ apartmentInfo.title }}</h4>
                 
-                {{ console.log(this.apartmentInfo ,'guardare qua')}}
-                <p>{{ apartmentInfo.latitude }}</p>
-                <p>{{ apartmentInfo.longitude }}</p>
+                <img :src="apartmentInfo.thumb" alt="Thumbnail" style="max-width: 100%; height: auto;">
 
                 <router-link :to="{ name: 'details-apartment', params: { slug: apartmentInfo.slug } }"
                     class="btn btn-primary">Info</router-link>
             </div>
         </div>
 
-        <Loader v-else  ></Loader>
-
+        <Loader v-else />
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style scoped>
+/* Stili specifici per il componente se necessario */
+</style>
