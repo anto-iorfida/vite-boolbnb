@@ -13,7 +13,9 @@ export default {
             axios.get(`http://127.0.0.1:8000/api/apartments/${this.$route.params.slug}`)
                 .then((response) => {
                     this.apartment = response.data.apartment;
-                    console.log(this.apartment);
+                })
+                .catch((error) => {
+                    console.error('Error fetching apartment details:', error);
                 });
         }
     },
@@ -28,14 +30,48 @@ export default {
         <div v-if="apartment">
             <div class="card">
                 <div class="card-header">
-                    <h3>{{ apartment.title  }}</h3>
-                    <h3>{{ console.log(this.apartment)
-                     }}</h3>
+                    <h3>{{ apartment.title }}</h3>
                 </div>
                 <div class="card-body">
                     <blockquote class="blockquote mb-0">
                         <p v-if="apartment.description">
-                            {{ apartment.description }}
+                            <strong>Descrizione:</strong> {{ apartment.description }}
+                        </p>
+
+                        <p>
+                            <strong>Slug:</strong> {{ apartment.slug }}
+                        </p>
+
+                        <p>
+                            <strong>Data di Creazione:</strong> {{ apartment.created_at }}
+                        </p>
+
+                        <p>
+                            <strong>Data di Modifica:</strong> {{ apartment.updated_at }}
+                        </p>
+
+                        <p>
+                            <strong>Numero di Camere:</strong> {{ apartment.number_rooms }}
+                        </p>
+
+                        <p>
+                            <strong>Numero di Letti:</strong> {{ apartment.number_beds }}
+                        </p>
+
+                        <p>
+                            <strong>Numero di Bagni:</strong> {{ apartment.number_baths }}
+                        </p>
+
+                        <p>
+                            <strong>Metri Quadrati:</strong> {{ apartment.square_meters }}
+                        </p>
+
+                        <p>
+                            <strong>Indirizzo:</strong> {{ apartment.address }}
+                        </p>
+
+                        <p>
+                            <strong>Visibilità:</strong> {{ apartment.visibility ? 'Visibile' : 'Non Visibile' }}
                         </p>
                     </blockquote>
                 </div>
@@ -43,3 +79,7 @@ export default {
         </div>
     </div>
 </template>
+
+<style scoped>
+/* Stili aggiuntivi per il componente se necessario */
+</style>
