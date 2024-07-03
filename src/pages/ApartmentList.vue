@@ -1,58 +1,68 @@
+
+
+
+
 <script>
 import axios from 'axios';
-import SingleApartment from '../components/SingleApartment.vue'
-import SearchBar from '../components/SearchBar.vue'
+import SingleApartment from '../components/SingleApartment.vue';
+import SearchBar from '../components/SearchBar.vue';
 
 export default {
-    name: "ApartmentList",
+    name: 'ApartmentList', 
+
     components: {
-        SingleApartment,
-        SearchBar
+        SingleApartment, 
+        SearchBar,
     },
+
     data() {
         return {
-            apartments: [],
-            loading: false,
-        };
+            apartments: [], // Array per memorizzare gli appartamenti ottenuti dalla ricerca
+            loading: false, // Flag per indicare se i dati stanno ancora caricando
+        }; 
     },
+
     methods: {
-        getApartments() {
-            this.loading = true;
-
-            axios.get('http://127.0.0.1:8000/api/apartments', {
-
-            })
-
-                .then((response) => {
-                    this.apartments = response.data.result;
-                    console.log(this.apartments);
-                    this.loading = false;
+        // Metodo per cercare gli appartamenti in base ai parametri di ricerca forniti
+        async searchApartments(searchParams) {
+            this.loading = true; // Imposta loading su true per indicare che il caricamento è in corso
+            console.log('Parametri di ricerca:', searchParams); // Debug dei parametri di ricerca
+            try {
+                // Effettua una richiesta GET all'API per ottenere gli appartamenti
+                const response = await axios.get('http://127.0.0.1:8000/api/apartment/search', {
+                    // Passa i parametri di ricerca (latitudine, longitudine e raggio) nella query string
+                    params: {
+                        latitude: searchParams.latitude,
+                        longitude: searchParams.longitude,
+                        radius: searchParams.radius
+                    },
                 });
-        }
-
+                // Assegna i risultati ottenuti dalla risposta dell'API all'array apartments
+                console.log('Risposta API:', response.data); // Debug della risposta API
+                this.apartments = response.data.result; // Supponendo che la chiave sia 'result'
+                console.log('Appartamenti trovati:', this.apartments);
+            } catch (error) {
+                // Logga eventuali errori che si verificano durante la richiesta
+                console.error('Errore durante il fetch degli appartamenti:', error);
+            } finally {
+                // Imposta loading su false per indicare che il caricamento è terminato
+                this.loading = false;
+            }
+        },
     },
-    mounted() {
-        this.getApartments(this.currentPage);
-    }
-}
+};
 </script>
 
 <template>
     <div class="container">
-        <SearchBar></SearchBar>
-        
-        <h2 class="text-center mt-5">Tutti gli appartamenti disponibili </h2>
-
-        <div class="row my-5">
-            <SingleApartment 
-                v-for="apartment in apartments" 
-                :key="apartment.id" 
-                :apartmentInfo="apartment" 
-                :loading="loading" 
-                class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4"
-            ></SingleApartment>
+        <SearchBar @search-apartments="searchApartments"></SearchBar>
+        <h2>Tutti gli appartamenti</h2>
+        <div class="row row-cols-4 my-5">
+            <SingleApartment v-for="apartment in apartments" :key="apartment.id" :apartmentInfo="apartment"
+                :loading="loading"></SingleApartment>
         </div>
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style scoped></style>
+
