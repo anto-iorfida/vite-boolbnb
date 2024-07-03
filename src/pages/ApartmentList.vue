@@ -41,6 +41,7 @@ export default {
     <div class="container">
         <SearchBar></SearchBar>
         
+        
         <h2>tutti gli appartamenti</h2>
 
         <div class="row row-cols-4 my-5">
