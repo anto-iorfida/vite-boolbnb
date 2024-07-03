@@ -41,7 +41,7 @@ export default {
     <div class="container">
         <SearchBar></SearchBar>
         
-        <h2>Tutti gli appartamenti</h2>
+        <h2 class="text-center mt-5">Tutti gli appartamenti disponibili </h2>
 
         <div class="row my-5">
             <SingleApartment 

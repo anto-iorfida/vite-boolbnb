@@ -28,15 +28,15 @@ export default {
 <template>
     <div class="container">
         <div v-if="apartment">
-            <div class="card">
-                <div class="card-header">
+            <div class="card mt-5">
+                <div class="card-header text-center">
                     <h3>{{ apartment.title }}</h3>
                 </div>
                 <div class="card-body">
                     <div v-if="apartment.thumb">
                         <img :src="apartment.thumb" alt="thumb" style="max-width: 100%; height: auto;">
                     </div>
-                    <blockquote class="blockquote mb-0">
+                    <blockquote class="blockquote mt-4">
                         <p v-if="apartment.description">
                             <strong>Descrizione:</strong> {{ apartment.description }}
                         </p>
