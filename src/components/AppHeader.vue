@@ -34,9 +34,9 @@ export default {
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="btn btn-primary" href="#">Book Now</a>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>
