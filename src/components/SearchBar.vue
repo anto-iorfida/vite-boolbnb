@@ -80,7 +80,8 @@ export default {
         <input type="number" class="form-control" id="radius" v-model.number="radius" />
 
         <!-- Pulsante di ricerca -->
-        <button class="btn btn-primary mt-3" @click="getSearchApartment()">Cerca</button>
+        <!-- <button class="btn btn-primary mt-3" @click="getSearchApartment()">Cerca</button> -->
+        <router-link class="btn btn-primary mt-3" @click="getSearchApartment()" :to="{ name: 'apartments' }">Cerca</router-link>
     </div>
 </template>
 

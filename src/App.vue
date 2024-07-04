@@ -19,7 +19,6 @@ export default {
 <template>
     <div id="app">
         <AppHeader />
-        <AppHero />
         <router-view />
         <AppSponsor />
         <AppInfo />
