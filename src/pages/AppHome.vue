@@ -1,13 +1,12 @@
 <script>
 import AppHero from '../components/AppHero.vue';
 import SearchBar from '../components/SearchBar.vue';
-import ApartmentList from './ApartmentList.vue';
 
 export default {
     name: 'AppHome',
     components: {
         AppHero,
-        SearchBar
+        SearchBar,
     }
 }
 </script>
