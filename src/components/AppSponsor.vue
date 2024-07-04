@@ -10,7 +10,7 @@
 </script>
 
 <template>
-<div class="container my-5">
+<!-- <div class="container my-5">
     <h2 class="text-center mb-4">APPARTAMENTI DA SPONSORIZZARE</h2>
     <div class="row">
         <div class="col-md-4 mb-4">
@@ -44,7 +44,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 </template>
 
 <style lang="scss" scoped>
