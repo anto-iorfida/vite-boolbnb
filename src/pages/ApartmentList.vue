@@ -50,9 +50,9 @@ export default {
 </script>
 
 <template>
-    <div class="container ">
+    <div class="container">
         <SearchBar @search-apartments="searchApartments"></SearchBar>
-        <h2>Tutti gli appartamenti</h2>
+        <h2 class="text-center mt-5">Tutti gli appartamenti</h2>
         <!-- Messaggio per il numero di appartamenti trovati -->
         <p v-if="apartments.length === 1" class="text-info">
             E' stato trovato {{ apartments.length }} appartamento.

@@ -63,7 +63,7 @@ export default {
 </script>
 
 <template>
-    <div class="search-bar-container text-center bg-dark p-4 mx-auto custom">
+    <div class="search-bar-container text-center bg-dark p-4 mt-5 mx-auto custom rounded-4">
         <label class="form-label text-white"><strong>Cerca il tuo appartamento</strong></label>
         <input type="text" class="form-control" id="address" name="address" v-model="query" @input="searchAddress"
             autocomplete="off" />
@@ -89,9 +89,6 @@ export default {
     cursor: pointer;
 }
 .custom {
-    max-width: 50%;
-    position: relative;
-    top: -110px;
-    border-radius:30px ;
+    max-width: 70%;
 }
 </style>
