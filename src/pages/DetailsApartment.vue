@@ -74,18 +74,9 @@ export default {
                         <div v-if="apartment.thumb" class="my-img-wrapper col-12 col-lg-7 mt-1 mb-3">
                             <img :src="apartment.thumb" alt="thumb" class="rounded-4">
                         </div>
-                        <div class="col-5 d-none d-lg-flex" v-for="singleimage in apartment.albums">
+                        <div class="col-5 d-none d-lg-flex">
                             <div class="row h-100 justify-content-between g-3">
-                                <div class="col-6">
-                                    <img :src="singleimage.image" alt="" class="w-100 h-100 rounded-4">
-                                </div>
-                                <div class="col-6">
-                                    <img :src="singleimage.image" alt="" class="w-100 h-100 rounded-4">
-                                </div>
-                                <div class="col-6">
-                                    <img :src="singleimage.image" alt="" class="w-100 h-100 rounded-4">
-                                </div>
-                                <div class="col-6">
+                                <div class="col-6" v-for="singleimage in apartment.albums">
                                     <img :src="singleimage.image" alt="" class="w-100 h-100 rounded-4">
                                 </div>
                             </div>
