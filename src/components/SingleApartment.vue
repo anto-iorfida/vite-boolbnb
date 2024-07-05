@@ -16,6 +16,16 @@ export default {
     methods: {
         contactOwner() {
             this.$router.push({ name: 'contact-owner', params: { apartmentId: this.apartmentInfo.id } });
+        },
+        // Metodo per scorrere al slide precedente
+        prevSlide() {
+            const carousel = new bootstrap.Carousel(document.getElementById('carousel-' + this.apartmentInfo.id));
+            carousel.prev();
+        },
+        // Metodo per scorrere al prossimo slide
+        nextSlide() {
+            const carousel = new bootstrap.Carousel(document.getElementById('carousel-' + this.apartmentInfo.id));
+            carousel.next();
         }
     }
 }
@@ -25,29 +35,50 @@ export default {
     <div class="col">
         <div v-if="!loading" class=" my-3 h-100">
             <div class="w-100 wrapper-img">
-                <router-link :to="{ name: 'details-apartment', params: { slug: apartmentInfo.slug } }"
-                class=" mb-2 position-absolute h-100 w-100"></router-link>
-                <img :src="apartmentInfo.thumb" alt="Thumbnail" class="w-100 h-100 rounded-3" >
+                <div :id="'carousel-' + apartmentInfo.id" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button v-for="(image, index) in apartmentInfo.albums" :key="index"
+                                :data-bs-target="'#carousel-' + apartmentInfo.id" :data-bs-slide-to="index"
+                                :class="{ active: index === 0 }"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div v-for="(image, index) in apartmentInfo.albums" :key="index"
+                             :class="{ 'carousel-item': true, active: index === 0 }">
+                            <img :src="index === 0 ? apartmentInfo.thumb : image.image" class="wrapper-img d-block w-100 rounded-3"
+                                 :alt="'Slide ' + (index + 1)">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button"
+                            :data-bs-target="'#carousel-' + apartmentInfo.id" data-bs-slide="prev" @click="prevSlide">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button"
+                            :data-bs-target="'#carousel-' + apartmentInfo.id" data-bs-slide="next" @click="nextSlide">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
             </div>
             <div class="card-text">
                 <h5 class="card-body fs-6 mt-2 mb-0">{{ apartmentInfo.title }}</h5>
                 <div>
-                    <small>Host:{{apartmentInfo.users.name}}</small>
+                    <small>Host: {{ apartmentInfo.users.name }}</small>
                 </div>
-                <h6 v-if=" apartmentInfo.visibility == 0">Non disponibile</h6>
-                <h6 v-if=" apartmentInfo.visibility == 1">disponibile </h6>
+                <h6 v-if="apartmentInfo.visibility == 0">Non disponibile</h6>
+                <h6 v-if="apartmentInfo.visibility == 1">Disponibile</h6>
             </div>
         </div>
-        <Loader v-else />
+        <Loader v-else/>
     </div>
+    <router-link :to="{ name: 'details-apartment', params: { slug: apartmentInfo.slug } }"
+    class="mb-2 position-absolute h-100 w-100"></router-link>
 </template>
-
 
 <style scoped>
 /* Stili specifici per il componente se necessario */
 .card {
-    margin: 0 auto;
-    /* Center the card horizontally */
+    margin: 0 auto; /* Centra la card orizzontalmente */
 }
 
 .wrapper-img {
