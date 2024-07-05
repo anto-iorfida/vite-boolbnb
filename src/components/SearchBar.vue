@@ -153,7 +153,7 @@ export default {
 
 <template>
     <div class="text-center search-bar-container text-cente p-4 mt-5 mx-auto custom rounded-4">
-        <label class="form-label text-white"><strong>Cerca il tuo appartamento</strong></label>
+        <label class="form-label"><strong>Cerca il tuo appartamento</strong></label>
         <input type="text" class="form-control" id="address" name="address" v-model="query" @input="searchAddress" autocomplete="off" />
 
         <ul v-if="suggestions.length" class="list-group mt-2">
@@ -162,10 +162,10 @@ export default {
             </li>
         </ul>
 
-        <label for="radius" class="form-label text-white mt-2">Raggio (km)</label>
+        <label for="radius" class="form-label mt-2">Raggio (km)</label>
         <input type="number" class="form-control" id="radius" v-model.number="radius" />
 
-        <button class="btn btn-primary mt-3" @click="getSearchApartment()">Cerca</button>
+        <button class="btn btn-primary mt-3 w-100" @click="getSearchApartment()">Cerca</button>
     </div>
 </template>
 
