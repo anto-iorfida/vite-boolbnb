@@ -1,6 +1,6 @@
 <script>
 import AppHeader from './components/AppHeader.vue';
-import AppHero from './components/AppHero.vue';
+// import AppHero from './components/AppHero.vue';
 import AppSponsor from './components/AppSponsor.vue';
 import AppInfo from './components/AppInfo.vue';
 import AppFooter from './components/AppFooter.vue';
@@ -8,7 +8,7 @@ import AppFooter from './components/AppFooter.vue';
 export default {
     components: {
         AppHeader,
-        AppHero,
+        // AppHero,
         AppSponsor,
         AppInfo,
         AppFooter
