@@ -9,7 +9,7 @@ export default {
             longitude: '',
             query: '',
             suggestions: [],
-            radius: 200 // Raggio di ricerca in km
+            radius: '' // Raggio di ricerca in km
         }
     },
     methods: {
@@ -65,8 +65,8 @@ export default {
 </script>
 
 <template>
-    <div class="search-bar-container text-center bg-dark p-4 mt-5 mx-auto custom rounded-4">
-        <label class="form-label text-white"><strong>Cerca il tuo appartamento</strong></label>
+    <div class="text-center search-bar-container text-cente p-4 mt-5 mx-auto custom rounded-4">
+        <label class="form-label"><strong>Cerca il tuo appartamento</strong></label>
         <input type="text" class="form-control" id="address" name="address" v-model="query" @input="searchAddress"
             autocomplete="off" />
 
@@ -78,7 +78,7 @@ export default {
             
         </ul>
 
-        <label for="radius" class="form-label text-white mt-2">Raggio (km)</label>
+        <label for="radius" class="form-label mt-2">Raggio (km)</label>
         <input type="number" class="form-control" id="radius" v-model.number="radius" />
 
         // Pulsante di ricerca 
@@ -175,7 +175,12 @@ export default {
 }
 .custom {
     max-width: 70%;
+    background: #ffffff2a;
+    box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
+    backdrop-filter: blur(8px) saturate(120%);
+    border: none;
 }
+
 </style>
 
 

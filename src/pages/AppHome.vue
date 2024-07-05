@@ -1,13 +1,12 @@
 <script>
 import AppHero from '../components/AppHero.vue';
 import SearchBar from '../components/SearchBar.vue';
-import ApartmentList from './ApartmentList.vue';
 
 export default {
     name: 'AppHome',
     components: {
         AppHero,
-        SearchBar
+        SearchBar,
     }
 }
 </script>
@@ -19,7 +18,6 @@ export default {
     <SearchBar class="ms-position-abs"></SearchBar>
 
     <div class="container">
-        <h1>Ciao sono la homepage</h1>
     </div>
 </template>
 

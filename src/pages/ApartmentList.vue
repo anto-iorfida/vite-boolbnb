@@ -50,7 +50,7 @@ export default {
 </script>
 
 <template>
-    <div class="container">
+    <div class="container-fluid p-5">
         <SearchBar @search-apartments="searchApartments"></SearchBar>
         <h2 class="text-center mt-5">Tutti gli appartamenti</h2>
         //Messaggio per il numero di appartamenti trovati 
@@ -60,7 +60,7 @@ export default {
         <p v-else-if="apartments.length > 1" class="text-info">
             Sono stati trovati {{ apartments.length }} appartamenti.
         </p>
-        <div class="row row-cols-4 my-5">
+        <div class="row row-cols-6 my-5 g-3">
             <SingleApartment v-for="apartment in apartments" :key="apartment.id" :apartmentInfo="apartment"
                 :loading="loading"></SingleApartment>
         </div>
@@ -152,6 +152,8 @@ export default {
     </div>
 </template>
 
-<style scoped></style>
+<style scoped lang="scss">
+
+</style>
 
 

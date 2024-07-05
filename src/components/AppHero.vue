@@ -43,8 +43,8 @@ export default {
                         style="background: url('https://www.rodaonline.com/wp-content/uploads/C_IMG_miami_beach_03_gallery_20220330-900x599.jpg') no-repeat center center; background-size: cover; height: 500px; position: relative;">
                         <div class="hero-content text-center text-white"
                             style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                            <h1>La vita è bella</h1>
-                            <p>Scatena per goderti la vista delle Maldive</p>
+                            <!-- <h1>La vita è bella</h1>
+                            <p>Scatena per goderti la vista delle Maldive</p> -->
                         </div>
                     </div>
                 </div>
@@ -55,8 +55,8 @@ export default {
                         style="background: url('https://a0.muscache.com/im/pictures/miso/Hosting-51770572/original/9e985f16-2048-4704-9841-0691a0ec7ebe.jpeg') no-repeat center center; background-size: cover; height: 500px; position: relative;">
                         <div class="hero-content text-center text-white"
                             style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                            <h1>La vita è bella</h1>
-                            <p>Scatena per goderti la vista delle Maldive</p>
+                            <!-- <h1>La vita è bella</h1>
+                            <p>Scatena per goderti la vista delle Maldive</p> -->
                         </div>
                     </div>
                 </div>
@@ -67,8 +67,8 @@ export default {
                         style="background: url('https://www.villeecasali.com/wp-content/uploads/2019/03/casa-miami-1-1024x710.jpg') no-repeat center center; background-size: cover; height: 500px; position: relative;">
                         <div class="hero-content text-center text-white"
                             style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                            <h1>La vita è bella</h1>
-                            <p>Scatena per goderti la vista delle Maldive</p>
+                            <!-- <h1>La vita è bella</h1>
+                            <p>Scatena per goderti la vista delle Maldive</p> -->
                         </div>
                     </div>
                 </div>

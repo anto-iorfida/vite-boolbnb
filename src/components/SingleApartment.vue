@@ -23,15 +23,19 @@ export default {
 
 <template>
     <div class="col">
-        <div v-if="!loading" class="card my-3 h-100" style="width: 100%;">
-            <div class="card-body d-flex flex-column">
-                <h4 class="card-title">{{ apartmentInfo.title }}</h4>
-                <img :src="apartmentInfo.thumb" alt="Thumbnail" class="img-fluid mb-3" style="max-width: 100%; height: auto;">
-                <div class="mt-auto">
-                    <router-link :to="{ name: 'details-apartment', params: { slug: apartmentInfo.slug } }"
-                        class="btn btn-primary w-100 mb-2">Info</router-link>
-                    <button @click="contactOwner" class="btn btn-secondary w-100">Contatta Subito</button>
+        <div v-if="!loading" class=" my-3 h-100">
+            <div class="w-100 wrapper-img">
+                <router-link :to="{ name: 'details-apartment', params: { slug: apartmentInfo.slug } }"
+                class=" mb-2 position-absolute h-100 w-100"></router-link>
+                <img :src="apartmentInfo.thumb" alt="Thumbnail" class="w-100 h-100 rounded-3" >
+            </div>
+            <div class="card-text">
+                <h5 class="card-body fs-6 mt-2 mb-0">{{ apartmentInfo.title }}</h5>
+                <div>
+                    <small>Host:{{apartmentInfo.users.name}}</small>
                 </div>
+                <h6 v-if=" apartmentInfo.visibility == 0">Non disponibile</h6>
+                <h6 v-if=" apartmentInfo.visibility == 1">disponibile </h6>
             </div>
         </div>
         <Loader v-else />
@@ -42,10 +46,15 @@ export default {
 <style scoped>
 /* Stili specifici per il componente se necessario */
 .card {
-    margin: 0 auto; /* Center the card horizontally */
+    margin: 0 auto;
+    /* Center the card horizontally */
 }
-.img-fluid {
-    max-height: 200px;
+
+.wrapper-img {
+    height: 250px;
+}
+
+.wrapper-img img {
     object-fit: cover;
 }
 </style>
