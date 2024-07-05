@@ -28,13 +28,13 @@ export default {
 <template>
     <div class="container">
         <div v-if="apartment">
-            <div class="card mt-5">
-                <div class="card-header text-center">
-                    <h3>{{ apartment.title }}</h3>
+            <div class="mt-5">
+                <div class="card-header mb-2 my-img-wrapper">
+                    <h3 >{{ apartment.title }}</h3>
                 </div>
                 <div class="card-body">
                     <div v-if="apartment.thumb">
-                        <img :src="apartment.thumb" alt="thumb" style="max-width: 100%; height: auto;">
+                        <img :src="apartment.thumb" alt="thumb" class="rounded-4">
                     </div>
                     <blockquote class="blockquote mt-4">
                         <p v-if="apartment.description">
@@ -62,6 +62,11 @@ export default {
     </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 /* Stili aggiuntivi per il componente se necessario */
+.my-img-wrapper img{
+    
+    height: 500px;
+    width: 100%;
+}
 </style>

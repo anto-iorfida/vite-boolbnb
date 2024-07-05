@@ -32,10 +32,10 @@ export default {
             <div class="card-text">
                 <h5 class="card-body fs-6 mt-2 mb-0">{{ apartmentInfo.title }}</h5>
                 <div>
-                    <small>Host:[nome host]</small>
+                    <small>Host:{{apartmentInfo.users.name}}</small>
                 </div>
-                <h6 v-if=" apartmentInfo.visibility == 0">Appartamento non disponibile</h6>
-                <h6 v-if=" apartmentInfo.visibility == 1">Appartamento disponibile </h6>
+                <h6 v-if=" apartmentInfo.visibility == 0">Non disponibile</h6>
+                <h6 v-if=" apartmentInfo.visibility == 1">disponibile </h6>
             </div>
         </div>
         <Loader v-else />
