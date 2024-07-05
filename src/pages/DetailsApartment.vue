@@ -71,10 +71,10 @@ export default {
                 </div>
                 <div class="card-body">
                     <div class="row my-img-wrapper ">
-                        <div v-if="apartment.thumb" class="my-img-wrapper col-12 col-lg-6 mt-1 mb-3">
+                        <div v-if="apartment.thumb" class="my-img-wrapper col-12 col-lg-7 mt-1 mb-3">
                             <img :src="apartment.thumb" alt="thumb" class="rounded-4">
                         </div>
-                        <div class="col-6 d-none d-lg-flex" v-for="singleimage in apartment.albums">
+                        <div class="col-5 d-none d-lg-flex" v-for="singleimage in apartment.albums">
                             <div class="row h-100 justify-content-between g-3">
                                 <div class="col-6">
                                     <img :src="singleimage.image" alt="" class="w-100 h-100 rounded-4">
@@ -127,7 +127,7 @@ export default {
                     <div>
                         <h5>Questi sono le caratteristiche complete dell'appartamento :</h5>
                         <div class="row row-cols-6">
-                            <div class="col">
+                            <div class="col" v-if="apartment.number_baths">
                                 <div class="card text-center p-1 ">
                                     <div>
                                         <div>
@@ -140,7 +140,7 @@ export default {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col" v-if="apartment.number_beds">
                                 <div class="card text-center p-1 ">
                                     <div>
                                         <div>
@@ -153,8 +153,8 @@ export default {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="card text-center p-1 ">
+                            <div class="col"  v-if="apartment.number_rooms">
+                                <div class="card text-center p-1 " >
                                     <div>
                                         <div >
                                             <i class="fa-solid fa-house"></i>
@@ -162,7 +162,7 @@ export default {
                                         <div>
                                             camere
                                         </div>
-                                        {{ apartment.number_beds}}
+                                        {{ apartment.number_rooms}}
                                     </div>
                                 </div>
                             </div>
