@@ -152,7 +152,7 @@ export default {
 </script>
 
 <template>
-    <div class="search-bar-container text-center bg-dark p-4 mt-5 mx-auto custom rounded-4">
+    <div class="text-center search-bar-container text-cente p-4 mt-5 mx-auto custom rounded-4">
         <label class="form-label text-white"><strong>Cerca il tuo appartamento</strong></label>
         <input type="text" class="form-control" id="address" name="address" v-model="query" @input="searchAddress" autocomplete="off" />
 
