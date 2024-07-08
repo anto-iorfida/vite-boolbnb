@@ -11,6 +11,7 @@ export default {
             suggestions: [],
             radius: this.$route.query.radius || '',
             number_beds: this.$route.query.number_beds || '',
+            number_baths: this.$route.query.number_baths || '',
             active: true
         }
     },
@@ -49,6 +50,7 @@ export default {
                     longitude: this.longitude,
                     radius: this.radius,
                     number_beds : this.number_beds,
+                    number_baths : this.number_baths,
                     query: this.query
                 }
             });
@@ -96,6 +98,12 @@ export default {
             <li>
                 <label for="number_beds" class="form-label"><strong>Numero minimo di letti *</strong></label>
                 <input type="number" class="form-control" id="number_beds"  min="0" v-model.number="number_beds">
+            </li>
+        </ul>
+        <ul class="my-ul-list" v-if="active == false">
+            <li>
+                <label for="number_baths" class="form-label"><strong>Numero minimo di bagni *</strong></label>
+                <input type="number" class="form-control" id="number_baths"  min="0" v-model.number="number_baths">
             </li>
         </ul>
         <button class="btn btn-primary mt-3 w-100" @click="getSearchApartment()">Cerca</button>
