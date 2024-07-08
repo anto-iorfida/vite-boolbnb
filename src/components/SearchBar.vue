@@ -8,11 +8,30 @@ export default {
             latitude: this.$route.query.latitude || '',
             longitude: this.$route.query.longitude || '',
             query: this.$route.query.query || '',
+            latitude: this.$route.query.latitude || '',
+            longitude: this.$route.query.longitude || '',
+            query: this.$route.query.query || '',
             suggestions: [],
             radius: this.$route.query.radius || '',
             number_beds: this.$route.query.number_beds || '',
             number_baths: this.$route.query.number_baths || '',
-            active: true
+            allServices: [
+                { name: 'Wi-Fi' },
+                { name: 'Aria condizionata' },
+                { name: 'Colazione' },
+                { name: 'TV a schermo piatto' },
+                { name: 'Cucina attrezzata' },
+                { name: 'Lavatrice' },
+                { name: 'Asciugatrice' },
+                { name: 'Posto auto' },
+                { name: 'Piscina' },
+                { name: 'Palestra' },
+                { name: 'Vista sul mare' },
+                { name: 'Portiere' },
+                { name: 'Animali domestici ammessi' }
+            ],
+            active: true,
+            selectedServices: []
         }
     },
     methods: {
@@ -55,23 +74,6 @@ export default {
         // },
         // Funzione per ottenere la ricerca degli appartamenti
         getSearchApartment() {
-            // Prepara i parametri di ricerca
-            const queryParams = {
-                latitude: this.latitude,
-                longitude: this.longitude,
-                radius: this.radius,
-                query: this.query
-            };
-
-            // Aggiungi number_beds solo se Ã¨ stato fornito
-            if (this.number_beds) {
-                queryParams.number_beds = this.number_beds;
-            }
-
-            if (this.number_baths) {
-                queryParams.number_baths = this.number_baths;
-            }
-
             // Reindirizza alla route "apartments" con i parametri di ricerca nella query string
             this.$router.push({
                 name: 'apartments',
@@ -120,14 +122,8 @@ export default {
         </div>
         <ul class="my-ul-list" v-if="active == false">
             <li>
-                <label for="number_beds" class="form-label"><strong>Numero minimo di letti *</strong></label>
-                <input type="number" class="form-control" id="number_beds"  min="0" v-model.number="number_beds">
-            </li>
-        </ul>
-        <ul class="my-ul-list" v-if="active == false">
-            <li>
-                <label for="number_baths" class="form-label"><strong>Numero minimo di bagni *</strong></label>
-                <input type="number" class="form-control" id="number_baths"  min="0" v-model.number="number_baths">
+                <label for="check">prova</label>
+                <input id="check" type="checkbox">
             </li>
         </ul>
         <button class="btn btn-primary mt-3 w-100" @click="getSearchApartment()">Cerca</button>
