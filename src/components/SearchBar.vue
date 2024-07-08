@@ -59,12 +59,17 @@ export default {
             const queryParams = {
                 latitude: this.latitude,
                 longitude: this.longitude,
-                radius: this.radius
+                radius: this.radius,
+                query: this.query
             };
 
             // Aggiungi number_beds solo se è stato fornito
             if (this.number_beds) {
                 queryParams.number_beds = this.number_beds;
+            }
+
+            if (this.number_baths) {
+                queryParams.number_baths = this.number_baths;
             }
 
             // Reindirizza alla route "apartments" con i parametri di ricerca nella query string
