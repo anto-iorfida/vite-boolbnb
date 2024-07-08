@@ -48,7 +48,7 @@ export default {
             }
         },
 
-        // Funzione per selezionare un suggerimento di indirizzo
+        // Funzione per selezionare un suggerimento di indirizzos
         selectSuggestion(suggestion) {
             this.latitude = suggestion.position.lat;
             this.longitude = suggestion.position.lon;
