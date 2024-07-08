@@ -10,6 +10,7 @@ export default {
             query: '',
             suggestions: [],
             radius: '', // Raggio di ricerca in kms,
+            number_beds: '',
             active: true
         }
     },
@@ -46,7 +47,8 @@ export default {
                 query: {
                     latitude: this.latitude,
                     longitude: this.longitude,
-                    radius: this.radius
+                    radius: this.radius,
+                    number_beds : this.number_beds
                 }
             });
         },
@@ -91,8 +93,8 @@ export default {
         </div>
         <ul class="my-ul-list" v-if="active == false">
             <li>
-                <label for="check">prova</label>
-                <input id="check" type="checkbox">
+                <label for="number_beds" class="form-label"><strong>Numero di Letti *</strong></label>
+                <input type="number" class="form-control" id="number_beds"  min="0" v-model.number="number_beds">
             </li>
         </ul>
         <button class="btn btn-primary mt-3 w-100" @click="getSearchApartment()">Cerca</button>

@@ -38,7 +38,8 @@ export default {
         // Metodo per cercare gli appartamenti in base ai parametri di ricerca forniti
         async searchApartments(searchParams) {
             this.loading = true; // Imposta loading su true per indicare che il caricamento è in corso
-            console.log('Parametri di ricerca:', searchParams); // Debug dei parametri di ricerca
+            console.log('Parametri di ricerca:', searchParams);
+            console.log(number_beds); // Debug dei parametri di ricerca
             try {
                 // Effettua una richiesta GET all'API per ottenere gli appartamenti
                 const response = await axios.get('http://127.0.0.1:8000/api/apartment/search', {
@@ -46,7 +47,8 @@ export default {
                     params: {
                         latitude: searchParams.latitude,
                         longitude: searchParams.longitude,
-                        radius: searchParams.radius
+                        radius: searchParams.radius,
+                        number_beds: searchParams.number_beds
                     },
                 });
                 // Assegna i risultati ottenuti dalla risposta dell'API all'array apartments
