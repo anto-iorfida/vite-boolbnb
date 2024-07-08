@@ -88,7 +88,7 @@ export default {
                                 <div class="carousel-item active rounded-3">
                                     <img :src="apartment.thumb" class="d-block w-100 rounded-3" alt="...">
                                 </div>
-                                <div class="carousel-item rounded-3" v-for="singleimage in apartment.albums">
+                                <div class="carousel-item rounded-3" v-for="singleimage in apartment.albums" :key="singleimage.id">
                                     <img :src="singleimage.image" class="d-block w-100 rounded-3" alt="...">
                                 </div>
                             </div>
@@ -108,7 +108,7 @@ export default {
                         </div>
                         <div class="col-5 d-none d-lg-flex">
                             <div class="row h-100 justify-content-between g-3">
-                                <div class="col-6" v-for="singleimage in apartment.albums">
+                                <div class="col-6" v-for="singleimage in apartment.albums" :key="singleimage.id">
                                     <img :src="singleimage.image" alt="" class="w-100 h-100 rounded-4">
                                 </div>
                             </div>
@@ -135,7 +135,7 @@ export default {
                         </div>
                         <div class="border-bottom pb-4">
                             <h5 class="pt-2">Servizi offerti dall'host</h5>
-                            <div v-for="singleservice in apartment.services"
+                            <div v-for="singleservice in apartment.services " :key="singleservice.id"
                                 class="mt-3 d-flex gap-2 align-items-center fs-6 fw-semibold ">
                                 <i :class="singleservice.icon"></i>
                                 <div>{{ singleservice.name }}</div>
