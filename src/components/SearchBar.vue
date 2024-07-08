@@ -5,12 +5,12 @@ export default {
     name: "SearchBar",
     data() {
         return {
-            latitude: '',
-            longitude: '',
+            latitude: this.$route.query.latitude || '',
+            longitude: this.$route.query.longitude || '',
             query: '',
             suggestions: [],
-            radius: '', // Raggio di ricerca in kms,
-            number_beds: '',
+            radius: this.$route.query.radius || '',
+            number_beds: this.$route.query.number_beds || '',
             active: true
         }
     },
@@ -93,7 +93,7 @@ export default {
         </div>
         <ul class="my-ul-list" v-if="active == false">
             <li>
-                <label for="number_beds" class="form-label"><strong>Numero di Letti *</strong></label>
+                <label for="number_beds" class="form-label"><strong>Numero minimo di letti *</strong></label>
                 <input type="number" class="form-control" id="number_beds"  min="0" v-model.number="number_beds">
             </li>
         </ul>
