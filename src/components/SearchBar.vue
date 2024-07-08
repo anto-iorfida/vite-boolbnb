@@ -7,7 +7,7 @@ export default {
         return {
             latitude: this.$route.query.latitude || '',
             longitude: this.$route.query.longitude || '',
-            query: '',
+            query: this.$route.query.query || '',
             suggestions: [],
             radius: this.$route.query.radius || '',
             number_beds: this.$route.query.number_beds || '',
@@ -48,7 +48,8 @@ export default {
                     latitude: this.latitude,
                     longitude: this.longitude,
                     radius: this.radius,
-                    number_beds : this.number_beds
+                    number_beds : this.number_beds,
+                    query: this.query
                 }
             });
         },
