@@ -158,6 +158,6 @@ ul {
 /* Stile generico per l'icona */
 .form-check-label i {
     margin: 0 10px;
-    color: black;
+    color: rgb(0, 58, 248);
 }
 </style>
