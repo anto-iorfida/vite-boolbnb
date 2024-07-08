@@ -48,7 +48,8 @@ export default {
                         latitude: searchParams.latitude,
                         longitude: searchParams.longitude,
                         radius: searchParams.radius,
-                        number_beds: searchParams.number_beds
+                        number_beds: searchParams.number_beds,
+                        number_baths: searchParams.number_baths
                     },
                 });
                 // Assegna i risultati ottenuti dalla risposta dell'API all'array apartments
