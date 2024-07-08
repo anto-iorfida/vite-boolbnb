@@ -12,7 +12,23 @@ export default {
             radius: this.$route.query.radius || '',
             number_beds: this.$route.query.number_beds || '',
             number_baths: this.$route.query.number_baths || '',
-            active: true
+            allServices: [
+                { name: 'Wi-Fi' },
+                { name: 'Aria condizionata' },
+                { name: 'Colazione' },
+                { name: 'TV a schermo piatto' },
+                { name: 'Cucina attrezzata' },
+                { name: 'Lavatrice' },
+                { name: 'Asciugatrice' },
+                { name: 'Posto auto' },
+                { name: 'Piscina' },
+                { name: 'Palestra' },
+                { name: 'Vista sul mare' },
+                { name: 'Portiere' },
+                { name: 'Animali domestici ammessi' }
+            ],
+            active: true,
+            selectedServices: []
         }
     },
     methods: {
@@ -123,11 +139,21 @@ export default {
                 <label for="number_beds" class="form-label"><strong>Numero minimo di letti *</strong></label>
                 <input type="number" class="form-control" id="number_beds"  min="0" v-model.number="number_beds">
             </li>
-        </ul>
-        <ul class="my-ul-list" v-if="active == false">
+
             <li>
                 <label for="number_baths" class="form-label"><strong>Numero minimo di bagni *</strong></label>
                 <input type="number" class="form-control" id="number_baths"  min="0" v-model.number="number_baths">
+            </li>
+
+            <li>
+                <label for="services" class="form-label"><strong>Servizi *</strong></label>
+                <select multiple class="form-control" v-model="selectedServices">
+                    
+                    <option v-for="allService in singleService"  :value="service.name">{{ service.name }}</option>
+                    
+                    
+                    
+                </select>
             </li>
         </ul>
         <button class="btn btn-primary mt-3 w-100" @click="getSearchApartment()">Cerca</button>
