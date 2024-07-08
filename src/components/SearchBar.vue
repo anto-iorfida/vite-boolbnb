@@ -40,18 +40,39 @@ export default {
         },
 
         // Funzione per ottenere la ricerca degli appartamenti
+        //     getSearchApartment() {
+        //         // Reindirizza alla route "apartments" con i parametri di ricerca nella query string
+        //         this.$router.push({
+        //             name: 'apartments',
+        //             query: {
+        //                 latitude: this.latitude,
+        //                 longitude: this.longitude,
+        //                 radius: this.radius,
+        //             }
+
+        //     });
+        // },
+        // Funzione per ottenere la ricerca degli appartamenti
         getSearchApartment() {
+            // Prepara i parametri di ricerca
+            const queryParams = {
+                latitude: this.latitude,
+                longitude: this.longitude,
+                radius: this.radius
+            };
+
+            // Aggiungi number_beds solo se è stato fornito
+            if (this.number_beds) {
+                queryParams.number_beds = this.number_beds;
+            }
+
             // Reindirizza alla route "apartments" con i parametri di ricerca nella query string
             this.$router.push({
                 name: 'apartments',
-                query: {
-                    latitude: this.latitude,
-                    longitude: this.longitude,
-                    radius: this.radius,
-                    number_beds : this.number_beds
-                }
+                query: queryParams
             });
         },
+
 
         // funzione per i filitri di ricerca
 
@@ -83,7 +104,7 @@ export default {
                 <input type="number" class="form-control" id="radius" v-model.number="radius" />
             </div>
         </div>
-        <!-- filtri  -->
+
         <div>
             <div @click=" getFilterServices()"
                 class="d-flex align-items-center justify-content-center gap-2 border w-25 mt-2 rounded-3 p-2 text-black btn">
@@ -94,7 +115,7 @@ export default {
         <ul class="my-ul-list" v-if="active == false">
             <li>
                 <label for="number_beds" class="form-label"><strong>Numero di Letti *</strong></label>
-                <input type="number" class="form-control" id="number_beds"  min="0" v-model.number="number_beds">
+                <input type="number" class="form-control" id="number_beds" min="0" v-model.number="number_beds">
             </li>
         </ul>
         <button class="btn btn-primary mt-3 w-100" @click="getSearchApartment()">Cerca</button>
