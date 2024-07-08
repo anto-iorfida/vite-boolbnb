@@ -9,7 +9,7 @@ export default {
             longitude: '',
             query: '',
             suggestions: [],
-            radius: '', // Raggio di ricerca in km,
+            radius: '', // Raggio di ricerca in kms,
             active: true
         }
     },
