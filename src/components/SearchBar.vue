@@ -128,7 +128,7 @@ export default {
             <h5 class="text-center">Seleziona Servizi:</h5>
             <div v-for="(service, index) in services" :key="index" class="form-check d-flex align-items-center">
                 <input class="form-check-input" type="checkbox" :id="'service' + index" :value="service.name" v-model="selectedServices">
-                <label class="form-check-label" :for="'service' + index">
+                <label class="form-check-label d-flex align-items-center" :for="'service' + index">
                     <i :class="service.icon"></i>
                     {{ service.name }}
                 </label>
