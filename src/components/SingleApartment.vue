@@ -94,6 +94,7 @@ export default {
     border: none;
     background-color: #ffffff;
     border-radius: 10px;
+    z-index: -23;
 }
 
 .wrapper-img {
