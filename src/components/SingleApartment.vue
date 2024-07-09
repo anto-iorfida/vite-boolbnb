@@ -35,8 +35,8 @@ export default {
 </script>
 
 <template>
-    <div class="col">
-        <div v-if="!loading" class=" my-3 h-100">
+    <div class="col my-4">
+        <div v-if="!loading" class="card h-100 d-flex flex-column">
             <div class="w-100 wrapper-img">
                 <div :id="'carousel-' + apartmentInfo.id" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
@@ -63,36 +63,41 @@ export default {
                     </button>
                 </div>
             </div>
-            <div class="card-text">
-                <h5 class="card-body fs-6 mt-2 mb-0">{{ apartmentInfo.title }}</h5>
+            <div class="card-body flex-grow-1 d-flex flex-column justify-content-between">
                 <div>
-                    <small>Host: {{ apartmentInfo.users.name }}</small>
-                </div>
-                <div>
-                    <small>a {{ roundedDistance }} Km</small>
-                </div>
-                <div class="border-bottom pb-4 ">
-                    <small class="pt-1">Servizi offerti</small>
-                    <div class="mt-3 d-flex gap-2 align-items-center fs-6 fw-semibold">
-                        <div v-for="singleservice in apartmentInfo.services" :key="singleservice.id" class="d-flex align-items-center">
-                            <i :class="singleservice.icon"></i>
+                    <h5 class="fs-6 mt-2">{{ apartmentInfo.title }}</h5>
+                    <div>
+                        <small>Host: {{ apartmentInfo.users.name }}</small>
+                    </div>
+                    <div>
+                        <small>a {{ roundedDistance }} Km</small>
+                    </div>
+                    <div class="services-offered pb-4">
+                        <small class="pt-1">Servizi offerti</small>
+                        <div class="services-container mt-3 d-flex gap-2 align-items-center fs-6 fw-semibold">
+                            <div v-for="singleservice in apartmentInfo.services" :key="singleservice.id" class="d-flex align-items-center">
+                                <i :class="singleservice.icon"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <h6 v-if="apartmentInfo.visibility == 0">Non disponibile</h6>
-                <h6 v-if="apartmentInfo.visibility == 1">Disponibile</h6>
+                <div class="availability">
+                    <h6 v-if="apartmentInfo.visibility == 0">Non disponibile</h6>
+                    <h6 v-if="apartmentInfo.visibility == 1">Disponibile</h6>
+                </div>
             </div>
+            <router-link :to="{ name: 'details-apartment', params: { slug: apartmentInfo.slug } }"
+                class="stretched-link"></router-link>
         </div>
         <Loader v-else />
     </div>
-    <router-link :to="{ name: 'details-apartment', params: { slug: apartmentInfo.slug } }"
-        class="mb-2 position-absolute h-100 w-100"></router-link>
 </template>
 
 <style scoped>
 .card {
-    margin: 0 auto;
-    /* Centra la card orizzontalmente */
+    border: none;
+    background-color: #ffffff;
+    border-radius: 10px;
 }
 
 .wrapper-img {
@@ -112,4 +117,20 @@ export default {
 .services-container i {
     margin-right: 10px;
 }
+
+.card-body {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.availability {
+    margin-top: auto;
+    border-top: 1px solid #e0e0e0; 
+    padding-top: 10px;
+    text-align: right;
+}
 </style>
+
