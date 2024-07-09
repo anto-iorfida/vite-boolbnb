@@ -99,9 +99,9 @@ export default {
 </script>
 
 <template>
-    <div class="text-center search-bar-container text-center p-4 mx-auto custom rounded-4">
-        <div class="d-flex align-items-center gap-3">
-            <div class="w-50">
+    <div class="my-search text-center search-bar-container text-center p-4 mx-auto custom rounded-4">
+        <div class="my-search d-flex align-items-center gap-3">
+            <div class="col-12 col-md-6">
                 <label class="form-label"><strong>Cerca</strong></label>
                 <input type="text" class="form-control" id="address" name="address" v-model="query"
                     @input="searchAddress" autocomplete="off" />
@@ -112,7 +112,7 @@ export default {
                     </li>
                 </ul>
             </div>
-            <div class="w-50">
+            <div class="col-12 col-md-6">
                 <label for="radius" class="form-label"><strong>Raggio (km)</strong></label>
                 <input type="number" class="form-control" id="radius" v-model.number="radius" />
             </div>
@@ -170,4 +170,10 @@ ul {
     margin: 0 10px;
     color: rgb(0, 58, 248);
 }
+@media (max-width: 575.98px) { 
+.my-search{
+    width: 100%;
+}
+
+ }
 </style>
