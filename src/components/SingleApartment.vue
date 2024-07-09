@@ -32,7 +32,6 @@ export default {
 </script>
 
 <template>
-    <template>
     <router-link :to="{ name: 'details-apartment', params: { slug: apartmentInfo.slug } }" class="card-link col my-4">
         <div v-if="!loading" class="card h-100 d-flex flex-column">
             <div class="w-100 wrapper-img">
@@ -73,7 +72,8 @@ export default {
                     <div class="services-offered pb-4">
                         <small class="pt-1">Servizi offerti</small>
                         <div class="services-container mt-3 d-flex gap-2 align-items-center fs-6 fw-semibold">
-                            <div v-for="singleservice in apartmentInfo.services" :key="singleservice.id" class="d-flex align-items-center">
+                            <div v-for="singleservice in apartmentInfo.services" :key="singleservice.id"
+                                class="d-flex align-items-center">
                                 <i :class="singleservice.icon" class="ms-icon"></i>
                             </div>
                         </div>
@@ -87,7 +87,6 @@ export default {
         </div>
         <Loader v-else />
     </router-link>
-</template>
 </template>
 
 <style scoped>
