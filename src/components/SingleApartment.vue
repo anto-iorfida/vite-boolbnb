@@ -76,7 +76,7 @@ export default {
                         <small class="pt-1">Servizi offerti</small>
                         <div class="services-container mt-3 d-flex gap-2 align-items-center fs-6 fw-semibold">
                             <div v-for="singleservice in apartmentInfo.services" :key="singleservice.id" class="d-flex align-items-center">
-                                <i :class="singleservice.icon"></i>
+                                <i :class="singleservice.icon" class="ms-icon"></i>
                             </div>
                         </div>
                     </div>
