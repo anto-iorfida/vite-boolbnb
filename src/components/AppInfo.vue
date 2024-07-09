@@ -9,7 +9,7 @@
         }
 </script>
 
-<template>
+<!-- <template>
 <div class="container my-5">
     <h2 class="text-center mb-4">Informazioni Generali</h2>
     <div class="row">
@@ -21,7 +21,7 @@
         </div>
     </div>
 </div>
-</template>
+</template> -->
 
 <style lang="scss" scoped>
 

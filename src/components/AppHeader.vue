@@ -26,14 +26,8 @@ export default {
                     <router-link class="nav-link active" aria-current="page" :to="{ name: 'about' }">About</router-link>
                 </li>
                 <!-- <li class="nav-item">
-                    <router-link class="nav-link active" aria-current="page" :to="{ name: 'apartments' }">Appartamenti</router-link>
-                </li> -->
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Rooms</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="#">Contact</a>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>

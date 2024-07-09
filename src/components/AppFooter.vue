@@ -10,10 +10,10 @@ export default {
 </script>
 
 <template>
-    <div class="container text-center my-5">
+    <!-- <div class="container text-center my-5">
         <h2>Vuoi Lavorare con noi?</h2>
         <a href="#" class="btn btn-primary">Contact Us</a>
-    </div>
+    </div> -->
 
     <footer class="bg-dark text-white py-4">
         <!-- Container to extend the footer to full width if needed -->
