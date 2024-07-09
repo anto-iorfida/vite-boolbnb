@@ -19,9 +19,6 @@ export default {
         }
     },
     methods: {
-        contactOwner() {
-            this.$router.push({ name: 'contact-owner', params: { apartmentId: this.apartmentInfo.id } });
-        },
         prevSlide() {
             const carousel = new bootstrap.Carousel(document.getElementById('carousel-' + this.apartmentInfo.id));
             carousel.prev();
@@ -35,7 +32,7 @@ export default {
 </script>
 
 <template>
-    <div class="col my-4">
+    <router-link :to="{ name: 'details-apartment', params: { slug: apartmentInfo.slug } }" class="card-link col my-4">
         <div v-if="!loading" class="card h-100 d-flex flex-column">
             <div class="w-100 wrapper-img">
                 <div :id="'carousel-' + apartmentInfo.id" class="carousel slide" data-bs-ride="carousel">
@@ -52,12 +49,12 @@ export default {
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button"
-                        :data-bs-target="'#carousel-' + apartmentInfo.id" data-bs-slide="prev" @click="prevSlide">
+                        :data-bs-target="'#carousel-' + apartmentInfo.id" data-bs-slide="prev" @click.stop="prevSlide">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
                     <button class="carousel-control-next" type="button"
-                        :data-bs-target="'#carousel-' + apartmentInfo.id" data-bs-slide="next" @click="nextSlide">
+                        :data-bs-target="'#carousel-' + apartmentInfo.id" data-bs-slide="next" @click.stop="nextSlide">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
@@ -75,7 +72,8 @@ export default {
                     <div class="services-offered pb-4">
                         <small class="pt-1">Servizi offerti</small>
                         <div class="services-container mt-3 d-flex gap-2 align-items-center fs-6 fw-semibold">
-                            <div v-for="singleservice in apartmentInfo.services" :key="singleservice.id" class="d-flex align-items-center">
+                            <div v-for="singleservice in apartmentInfo.services" :key="singleservice.id"
+                                class="d-flex align-items-center">
                                 <i :class="singleservice.icon"></i>
                             </div>
                         </div>
@@ -86,11 +84,9 @@ export default {
                     <h6 v-if="apartmentInfo.visibility == 1">Disponibile</h6>
                 </div>
             </div>
-            <router-link :to="{ name: 'details-apartment', params: { slug: apartmentInfo.slug } }"
-                class="stretched-link"></router-link>
         </div>
         <Loader v-else />
-    </div>
+    </router-link>
 </template>
 
 <style scoped>
@@ -98,7 +94,6 @@ export default {
     border: none;
     background-color: #ffffff;
     border-radius: 10px;
-    z-index: -23;
 }
 
 .wrapper-img {
@@ -129,9 +124,18 @@ export default {
 
 .availability {
     margin-top: auto;
-    border-top: 1px solid #e0e0e0; 
+    border-top: 1px solid #e0e0e0;
     padding-top: 10px;
     text-align: right;
 }
-</style>
 
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card-link:hover {
+    text-decoration: none;
+    color: inherit;
+}
+</style>
