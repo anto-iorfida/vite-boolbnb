@@ -65,6 +65,9 @@ export default {
                 <div>
                     <small>Host: {{ apartmentInfo.users.name }}</small>
                 </div>
+                <div>
+                    <small>a {{ apartmentInfo.distance }} Km</small>
+                </div>
                 <h6 v-if="apartmentInfo.visibility == 0">Non disponibile</h6>
                 <h6 v-if="apartmentInfo.visibility == 1">Disponibile</h6>
             </div>
