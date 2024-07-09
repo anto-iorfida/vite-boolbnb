@@ -13,16 +13,19 @@ export default {
             required: true
         }
     },
+    computed: {
+        roundedDistance() {
+            return this.apartmentInfo.distance.toFixed(1);
+        }
+    },
     methods: {
         contactOwner() {
             this.$router.push({ name: 'contact-owner', params: { apartmentId: this.apartmentInfo.id } });
         },
-        // Metodo per scorrere al slide precedente
         prevSlide() {
             const carousel = new bootstrap.Carousel(document.getElementById('carousel-' + this.apartmentInfo.id));
             carousel.prev();
         },
-        // Metodo per scorrere al prossimo slide
         nextSlide() {
             const carousel = new bootstrap.Carousel(document.getElementById('carousel-' + this.apartmentInfo.id));
             carousel.next();
@@ -66,13 +69,14 @@ export default {
                     <small>Host: {{ apartmentInfo.users.name }}</small>
                 </div>
                 <div>
-                    <small>a {{ apartmentInfo.distance }} Km</small>
+                    <small>a {{ roundedDistance }} Km</small>
                 </div>
                 <div class="border-bottom pb-4 ">
-                    <small class="pt-1">Servizi offerti </small>
-                    <div v-for="singleservice in apartmentInfo.services " :key="singleservice.id"
-                        class="mt-3 d-flex  gap-2 align-items-center fs-6 fw-semibold ">
-                        <i :class="singleservice.icon"></i>
+                    <small class="pt-1">Servizi offerti</small>
+                    <div class="mt-3 d-flex gap-2 align-items-center fs-6 fw-semibold">
+                        <div v-for="singleservice in apartmentInfo.services" :key="singleservice.id" class="d-flex align-items-center">
+                            <i :class="singleservice.icon"></i>
+                        </div>
                     </div>
                 </div>
                 <h6 v-if="apartmentInfo.visibility == 0">Non disponibile</h6>
@@ -86,7 +90,6 @@ export default {
 </template>
 
 <style scoped>
-/* Stili specifici per il componente se necessario */
 .card {
     margin: 0 auto;
     /* Centra la card orizzontalmente */
@@ -98,5 +101,15 @@ export default {
 
 .wrapper-img img {
     object-fit: cover;
+}
+
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.services-container i {
+    margin-right: 10px;
 }
 </style>
