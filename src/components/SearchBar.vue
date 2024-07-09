@@ -102,7 +102,7 @@ export default {
     <div class="text-center search-bar-container text-center p-4 mx-auto custom rounded-4">
         <div class="d-flex align-items-center gap-3">
             <div class="w-50">
-                <label class="form-label"><strong>Cerca il tuo appartamento</strong></label>
+                <label class="form-label"><strong>Cerca</strong></label>
                 <input type="text" class="form-control" id="address" name="address" v-model="query"
                     @input="searchAddress" autocomplete="off" />
                 <ul v-if="suggestions.length" class="list-group mt-2 mb-5 position-absolute">
