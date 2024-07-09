@@ -28,7 +28,14 @@ export default {
                 { name: 'Animali domestici ammessi', icon: 'fa-solid fa-dog' }
             ],
             selectedServices: this.$route.query.services ? this.$route.query.services.split(',') : [],
-            active: true
+            active: true,
+            filtersVisible: false // Add this line
+        }
+    },
+    created() {
+        // Check if query parameters exist to show the filters button on page load
+        if (this.$route.query.latitude && this.$route.query.longitude) {
+            this.filtersVisible = true;
         }
     },
     methods: {
@@ -74,9 +81,10 @@ export default {
             this.$router.push({
                 name: 'apartments',
                 query: queryParams
+            }).then(() => {
+                this.filtersVisible = true; // Show the filters button after navigation
+                this.active = true; // Close the filter dropdown
             });
-
-            this.active = true; // Close the filter dropdown
         },
 
         getFilterServices() {
@@ -89,7 +97,6 @@ export default {
     }
 }
 </script>
-
 
 <template>
     <div class="text-center search-bar-container text-center p-4 mt-5 mx-auto custom rounded-4">
@@ -110,7 +117,7 @@ export default {
                 <input type="number" class="form-control" id="radius" v-model.number="radius" />
             </div>
         </div>
-        <div class="text-center mt-3">
+        <div class="text-center mt-3" v-if="filtersVisible">
             <div @click="getFilterServices"
                 class="d-flex align-items-center justify-content-center gap-2 border mt-2 rounded-3 p-2 text-black btn">
                 <i :class="{'fa-solid fa-list': active, 'fa-solid fa-x': !active}"></i>
