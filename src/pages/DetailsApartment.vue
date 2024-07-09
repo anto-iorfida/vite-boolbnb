@@ -15,15 +15,40 @@ export default {
         };
     },
     methods: {
+        // getApartmentDetails() {
+        //     axios.get(`http://127.0.0.1:8000/api/apartments/${this.$route.params.slug}`)
+        //         .then((response) => {
+        //             this.apartment = response.data.apartment;
+        //             console.log(response.data.apartment)
+        //         })
+        //         .catch((error) => {
+        //             console.error('Error fetching apartment details:', error);
+        //         });
+        // },
         getApartmentDetails() {
             axios.get(`http://127.0.0.1:8000/api/apartments/${this.$route.params.slug}`)
                 .then((response) => {
                     this.apartment = response.data.apartment;
-                    console.log(response.data.apartment)
+                    this.$nextTick(() => {
+                        this.initMap(); // Inizializza la mappa una volta che i dettagli dell'appartamento sono caricati
+                    });
                 })
                 .catch((error) => {
                     console.error('Error fetching apartment details:', error);
                 });
+        },
+        initMap() {
+            const tt = window.tt;
+            tt.setProductInfo('Your App Name', 'Your App Version');
+            const map = tt.map({
+                key: 'tNdeH4PSEGzxLQ1CKK0HdCagLd1BsXSc',
+                container: 'map', 
+                center: [this.apartment.longitude, this.apartment.latitude],
+                zoom: 15
+            });
+            const marker = new tt.Marker()
+                .setLngLat([this.apartment.longitude, this.apartment.latitude])
+                .addTo(map);
         },
         sendMessage() {
             // Esegui la validazione dei campi obbligatori lato client, se necessario
@@ -55,6 +80,7 @@ export default {
                     this.sending = false;
                 });
         }
+
     },
     mounted() {
         this.getApartmentDetails();
@@ -88,7 +114,8 @@ export default {
                                 <div class="carousel-item active rounded-3">
                                     <img :src="apartment.thumb" class="d-block w-100 rounded-3" alt="...">
                                 </div>
-                                <div class="carousel-item rounded-3" v-for="singleimage in apartment.albums" :key="singleimage.id">
+                                <div class="carousel-item rounded-3" v-for="singleimage in apartment.albums"
+                                    :key="singleimage.id">
                                     <img :src="singleimage.image" class="d-block w-100 rounded-3" alt="...">
                                 </div>
                             </div>
@@ -114,6 +141,9 @@ export default {
                             </div>
                         </div>
                     </div>
+                    <!-- ---------------------------------------- -->
+                    <div id="map" class="rounded mb-4 "></div>
+                    <!-- ------------------------------------------ -->
                     <blockquote class="blockquote mt-4 w-50 border-bottom pb-3">
                         <p class="mb-0"><strong>{{ apartment.address }}</strong> </p>
                         <div class="mb-4 fs-6">
@@ -238,7 +268,11 @@ export default {
 <style scoped lang="scss">
 /* Stili aggiuntivi per il componente se necessario */
 
-
+#map {
+    height: 400px;
+    width: 100%;
+    border: 1px solid #DEE2E6;
+}
 
 .my-img-wrapper>img {
 
@@ -246,7 +280,8 @@ export default {
     width: 100%;
     object-fit: cover;
 }
-.my-icon-previous{
+
+.my-icon-previous {
     border-radius: 100%;
     background-color: rgba($color: #000000, $alpha: 0.7);
     display: flex;
@@ -254,7 +289,7 @@ export default {
     justify-content: center;
 }
 
-.carousel img{
+.carousel img {
     height: 400px;
 }
 </style>
