@@ -86,7 +86,7 @@ export default {
         <Loader v-else />
     </div>
     <router-link :to="{ name: 'details-apartment', params: { slug: apartmentInfo.slug } }"
-        class="mb-2 position-absolute h-100 w-100"></router-link>
+        class="mb-2 position-absolute w-100"></router-link>
 </template>
 
 <style scoped>
