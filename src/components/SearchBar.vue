@@ -42,7 +42,7 @@ export default {
         async searchAddress() {
             if (this.query.length > 1) {
                 const apiKey = 'tNdeH4PSEGzxLQ1CKK0HdCagLd1BsXSc';
-                const url = `https://api.tomtom.com/search/2/search/${this.query}.json?key=${apiKey}&countrySet=IT`;
+                const url = `https://api.tomtom.com/search/2/search/${this.query}.json?key=${apiKey}&countrySet=IT&limit=5`;
                 try {
                     const response = await axios.get(url);
                     this.suggestions = response.data.results;
@@ -99,13 +99,15 @@ export default {
 </script>
 
 <template>
-    <div class="my-search text-center search-bar-container text-center p-4 mx-auto custom rounded-4">
-        <div class="my-search d-flex align-items-center gap-3">
+    <div class="text-center search-bar-container text-center p-4 mx-auto custom rounded-4">
+        <div class="row align-items-center gap-2 gap-md-0">
             <div class="col-12 col-md-6">
-                <label class="form-label"><strong>Cerca</strong></label>
-                <input type="text" class="form-control" id="address" name="address" v-model="query"
+                <label class="form-label fs-5">
+                    <strong><i class="fa-solid fa-city"></i>  Località</strong>
+                </label>
+                <input type="text" class="form-control fs-5 fw-semibold rounded-pill" id="address" name="address" v-model="query"
                     @input="searchAddress" autocomplete="off" />
-                <ul v-if="suggestions.length" class="list-group mt-2 mb-5 position-absolute">
+                <ul v-if="suggestions.length" class="list-group mt-2 mb-5 position-absolute my-ul-suggestion">
                     <li v-for="(suggestion, index) in suggestions" :key="index"
                         class="list-group-item list-group-item-action" @click="selectSuggestion(suggestion)">
                         {{ suggestion.address.freeformAddress }}
@@ -113,8 +115,10 @@ export default {
                 </ul>
             </div>
             <div class="col-12 col-md-6">
-                <label for="radius" class="form-label"><strong>Raggio (km)</strong></label>
-                <input type="number" class="form-control" id="radius" v-model.number="radius" />
+                <label for="radius" class="form-label fs-5">
+                    <strong><i class="fa-solid fa-map-location-dot"></i> Raggio (km)</strong>
+                </label>
+                <input type="number" class="form-control fs-5 fw-semibold rounded-pill" id="radius" v-model.number="radius" />
             </div>
         </div>
         <div class="text-center mt-3" v-if="filtersVisible">
@@ -124,27 +128,27 @@ export default {
                 <div>Filtri</div>
             </div>
         </div>
-        <ul class="my-ul-list" v-if="!active">
-            <li>
+        <ul class="my-ul-list px-0 mt-3" v-if="!active">
+            <li class="mb-3">
                 <label for="number_beds" class="form-label"><strong>Numero minimo di letti *</strong></label>
-                <input type="number" class="form-control" id="number_beds" min="0" v-model.number="number_beds">
+                <input type="number" class="form-control rounded-pill" id="number_beds" min="0" v-model.number="number_beds">
             </li>
             <li>
                 <label for="number_baths" class="form-label"><strong>Numero minimo di bagni *</strong></label>
-                <input type="number" class="form-control" id="number_baths" min="0" v-model.number="number_baths">
+                <input type="number" class="form-control rounded-pill" id="number_baths" min="0" v-model.number="number_baths">
             </li>
         </ul>
         <div class="mt-3" v-if="!active">
             <h5 class="text-center">Seleziona Servizi:</h5>
             <div v-for="(service, index) in services" :key="index" class="form-check d-flex align-items-center">
-                <input class="form-check-input" type="checkbox" :id="'service' + index" :value="service.name" v-model="selectedServices">
-                <label class="form-check-label d-flex align-items-center" :for="'service' + index">
+                <input class="form-check-input rounded-pill" type="checkbox" :id="'service' + index" :value="service.name" v-model="selectedServices">
+                <label class="form-check-label d-flex align-items-center " :for="'service' + index">
                     <i :class="service.icon"></i>
                     {{ service.name }}
                 </label>
             </div>
         </div>
-        <button class="btn btn-primary mt-3 w-100" @click="getSearchApartment">Cerca</button>
+        <button class="btn btn-primary mt-4 w-100 rounded-pill fw-bold fs-5" @click="getSearchApartment">Cerca</button>
     </div>
 </template>
 
@@ -157,7 +161,7 @@ export default {
     max-width: 70%;
     background: #ffffff2a;
     box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
-    backdrop-filter: blur(8px) saturate(120%);
+    backdrop-filter: blur(16px) saturate(120%);
     border: none;
 }
 
@@ -171,9 +175,8 @@ ul {
     color: rgb(0, 58, 248);
 }
 @media (max-width: 575.98px) { 
-.my-search{
-    width: 100%;
+   .custom{
+    max-width: 80%;
+   }
 }
-
- }
 </style>
