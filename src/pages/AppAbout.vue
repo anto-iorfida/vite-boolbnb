@@ -54,6 +54,30 @@ export default {
                             </div>
                         </div>
                     </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                                Quali metodi di pagamento sono accettati?
+                            </button>
+                        </h2>
+                        <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                BoolBnB accetta vari metodi di pagamento tra cui carte di credito, PayPal e bonifici bancari. Durante il processo di prenotazione, potrai selezionare il metodo di pagamento che preferisci. Tutte le transazioni sono protette con crittografia avanzata per garantire la sicurezza dei tuoi dati.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                                Come posso diventare un host su BoolBnB?
+                            </button>
+                        </h2>
+                        <div id="flush-collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion-body">
+                                Diventare un host su BoolBnB è semplice. Basta registrarsi sulla piattaforma, creare un profilo dettagliato e inserire le informazioni sull'alloggio che intendi offrire. Una volta completato, potrai pubblicare il tuo annuncio e iniziare a ricevere prenotazioni da viaggiatori di tutto il mondo.
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -63,6 +87,6 @@ export default {
 <style>
 .container {
     margin-top: 20px;
-    padding: 104px;
+    padding: 75.5px;
 }
 </style>
