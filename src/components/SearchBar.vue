@@ -9,7 +9,7 @@ export default {
             longitude: this.$route.query.longitude || '',
             query: this.$route.query.query || '',
             suggestions: [],
-            radius: this.$route.query.radius || '',
+            radius: this.$route.query.radius || 20,
             number_beds: this.$route.query.number_beds || '',
             number_baths: this.$route.query.number_baths || '',
             services: [
@@ -28,7 +28,14 @@ export default {
                 { name: 'Animali domestici ammessi', icon: 'fa-solid fa-dog' }
             ],
             selectedServices: this.$route.query.services ? this.$route.query.services.split(',') : [],
-            active: true
+            active: true,
+            filtersVisible: false // Add this line
+        }
+    },
+    created() {
+        // Check if query parameters exist to show the filters button on page load
+        if (this.$route.query.latitude && this.$route.query.longitude) {
+            this.filtersVisible = true;
         }
     },
     methods: {
@@ -74,11 +81,14 @@ export default {
             this.$router.push({
                 name: 'apartments',
                 query: queryParams
+            }).then(() => {
+                this.filtersVisible = true; // Show the filters button after navigation
+                this.active = true; // Close the filter dropdown
             });
         },
 
         getFilterServices() {
-            this.active = false;
+            this.active = !this.active;
         },
 
         closeFilters() {
@@ -93,7 +103,7 @@ export default {
         <div class="d-flex align-items-center gap-3">
             <div class="w-50">
                 <label class="form-label"><strong>Cerca il tuo appartamento</strong></label>
-                <input type="text" class="form-control position-relative" id="address" name="address" v-model="query"
+                <input type="text" class="form-control" id="address" name="address" v-model="query"
                     @input="searchAddress" autocomplete="off" />
                 <ul v-if="suggestions.length" class="list-group mt-2 mb-5 position-absolute">
                     <li v-for="(suggestion, index) in suggestions" :key="index"
@@ -107,8 +117,8 @@ export default {
                 <input type="number" class="form-control" id="radius" v-model.number="radius" />
             </div>
         </div>
-        <div class="text-center mt-3">
-            <div @click="active ? getFilterServices() : closeFilters()"
+        <div class="text-center mt-3" v-if="filtersVisible">
+            <div @click="getFilterServices"
                 class="d-flex align-items-center justify-content-center gap-2 border mt-2 rounded-3 p-2 text-black btn">
                 <i :class="{'fa-solid fa-list': active, 'fa-solid fa-x': !active}"></i>
                 <div>Filtri</div>
