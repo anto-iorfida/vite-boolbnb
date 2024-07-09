@@ -62,14 +62,14 @@ export default {
 <template>
     <div class="container">
         <SearchBar @search-apartments="searchApartments"></SearchBar>
-        <h2 class="text-center mt-5">Tutti gli appartamenti</h2>
-        <p v-if="apartments.length === 1" class="text-info">
+        <!-- <h2 class="text-center mt-5">Tutti gli appartamenti</h2> -->
+        <p v-if="apartments.length === 1" class="text-info text-center mt-3">
             È stato trovato {{ apartments.length }} appartamento.
         </p>
-        <p v-else-if="apartments.length > 1" class="text-info">
+        <p v-else-if="apartments.length > 1" class="text-info text-center mt-3">
             Sono stati trovati {{ apartments.length }} appartamenti.
         </p>
-        <div class="row row-cols-4 my-5">
+        <div class="row row-cols-4">
             <SingleApartment v-for="apartment in apartments" :key="apartment.id" :apartmentInfo="apartment" :loading="loading"></SingleApartment>
         </div>
     </div>

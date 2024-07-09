@@ -9,7 +9,7 @@ export default {
             longitude: this.$route.query.longitude || '',
             query: this.$route.query.query || '',
             suggestions: [],
-            radius: this.$route.query.radius || '',
+            radius: this.$route.query.radius || 20,
             number_beds: this.$route.query.number_beds || '',
             number_baths: this.$route.query.number_baths || '',
             services: [
@@ -75,10 +75,12 @@ export default {
                 name: 'apartments',
                 query: queryParams
             });
+
+            this.active = true; // Close the filter dropdown
         },
 
         getFilterServices() {
-            this.active = false;
+            this.active = !this.active;
         },
 
         closeFilters() {
@@ -87,6 +89,7 @@ export default {
     }
 }
 </script>
+
 
 <template>
     <div class="text-center search-bar-container text-center p-4 mt-5 mx-auto custom rounded-4">
@@ -108,7 +111,7 @@ export default {
             </div>
         </div>
         <div class="text-center mt-3">
-            <div @click="active ? getFilterServices() : closeFilters()"
+            <div @click="getFilterServices"
                 class="d-flex align-items-center justify-content-center gap-2 border mt-2 rounded-3 p-2 text-black btn">
                 <i :class="{'fa-solid fa-list': active, 'fa-solid fa-x': !active}"></i>
                 <div>Filtri</div>
