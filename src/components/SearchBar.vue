@@ -99,7 +99,7 @@ export default {
 </script>
 
 <template>
-    <div class="text-center search-bar-container text-center p-4 mt-5 mx-auto custom rounded-4">
+    <div class="text-center search-bar-container text-center p-4 mx-auto custom rounded-4">
         <div class="d-flex align-items-center gap-3">
             <div class="w-50">
                 <label class="form-label"><strong>Cerca il tuo appartamento</strong></label>
