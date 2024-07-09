@@ -96,7 +96,7 @@ export default {
         <div class="d-flex align-items-center gap-3">
             <div class="w-50">
                 <label class="form-label"><strong>Cerca il tuo appartamento</strong></label>
-                <input type="text" class="form-control position-relative" id="address" name="address" v-model="query"
+                <input type="text" class="form-control" id="address" name="address" v-model="query"
                     @input="searchAddress" autocomplete="off" />
                 <ul v-if="suggestions.length" class="list-group mt-2 mb-5 position-absolute">
                     <li v-for="(suggestion, index) in suggestions" :key="index"
