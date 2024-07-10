@@ -25,7 +25,7 @@ export default {
         <a href="#" class="btn btn-primary">Contact Us</a>
     </div> -->
 
-    <footer class="bg-dark text-white py-4">
+    <footer class="bg-dark  py-4">
         <!-- Container to extend the footer to full width if needed -->
         <div class="container p-4 pb-0">
             <!-- Section: Links -->
@@ -52,14 +52,14 @@ export default {
                     <div class="col-md-6 col-lg-3 col-xl-3 mx-auto mt-3">
                         <h6 class="text-uppercase mb-4 font-weight-bold">sviluppatori Del Sito</h6>
                         <p>
-                            <img :src="getImageUrl(davide)" style="height: 50px;">
-                            <a href="https://www.linkedin.com/in/davide-tessari-535465281" class="text-white fs-5" target="_blank">Davide Tassari</a></p>
+                            <img :src="getImageUrl(davide)" >
+                            <a href="https://www.linkedin.com/in/davide-tessari-535465281" class=" fs-5" target="_blank">Davide Tassari</a></p>
                         <p>
-                            <img :src="getImageUrl(mattia)" style="height: 50px;"><a href="https://www.linkedin.com/in/mattia-giarrusso-b59652228" class="text-white fs-5" target="_blank">Mattia Giarrusso</a></p>
+                            <img :src="getImageUrl(mattia)" ><a href="https://www.linkedin.com/in/mattia-giarrusso-b59652228" class=" fs-5" target="_blank">Mattia Giarrusso</a></p>
                         <p>
-                            <img :src="getImageUrl(casimiro)" style="height: 50px;"><a href="https://www.linkedin.com/in/casimiro-moliterni-9a7322281/" target="_blank" class="text-white fs-5">Casimiro Moliterni</a></p>
+                            <img :src="getImageUrl(casimiro)" ><a href="https://www.linkedin.com/in/casimiro-moliterni-9a7322281/" target="_blank" class=" fs-5">Casimiro Moliterni</a></p>
                         <p>
-                            <img :src="getImageUrl(antonino)" style="height: 50px;"><a href="https://www.linkedin.com/in/antonino-iorfida-4723a72ba" target="_blank" class="text-white fs-5">Antonino Iorfida</a></p>
+                            <img :src="getImageUrl(antonino)" ><a href="https://www.linkedin.com/in/antonino-iorfida-4723a72ba" target="_blank" class=" fs-5">Antonino Iorfida</a></p>
                     </div>
                     <!-- Grid column -->
 
@@ -68,10 +68,10 @@ export default {
                     <!-- Grid column -->
                     <div class="col-md-6 col-lg-2 col-xl-2 mx-auto mt-3">
                         <h6 class="text-uppercase mb-4 font-weight-bold">Link utili</h6>
-                        <p> <a href="#" class="text-white fs-5">Il tuo Account</a></p>
-                        <p><a href="#" class="text-white fs-5">Diventa un Affiliato</a></p>
-                        <p><a href="#" class="text-white fs-5">Lavora con noi</a></p>
-                        <p><a href="#" class="text-white fs-5">Aiuto</a></p>
+                        <p> <a href="#" class=" fs-5">Il tuo Account</a></p>
+                        <p><a href="#" class=" fs-5">Diventa un Affiliato</a></p>
+                        <p><a href="#" class=" fs-5">Lavora con noi</a></p>
+                        <p><a href="#" class=" fs-5">Aiuto</a></p>
                     </div>
 
                     <!-- Grid column -->
@@ -101,7 +101,7 @@ export default {
                         <!-- Copyright -->
                         <div class="p-3">
                             © 2024 Team 4 Copyright:
-                            <a class="text-white" href="https://mdbootstrap.com/">BoolBnb.com</a>
+                            <a class="" href="https://mdbootstrap.com/">BoolBnb.com</a>
                         </div>
                         <!-- Copyright -->
                     </div>
@@ -138,5 +138,26 @@ export default {
 img{
     border-radius: 100%;
     margin-right: 10px;
+    border: 3px solid white;
+    height: 60px;
+}
+img:hover{
+    border: 3px solid#70C1B3;
+}
+
+a{
+    text-decoration: none;
+ color: white;
+}
+h6{
+    color: white;
+}
+a:hover,
+p:hover,
+h6:hover{
+    color: #70C1B3;
+}
+p{
+    color: white;
 }
 </style>
