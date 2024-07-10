@@ -61,9 +61,9 @@ export default {
 };
 </script>
 
-<template>
-     <SearchBar @search-apartments="searchApartments" class="my-search-list"></SearchBar>
-    <div class="container-fluid container-md">
+<template >
+    <div class="container-fluid container-md pt-4">
+        <SearchBar @search-apartments="searchApartments" class="my-search-list"></SearchBar>
         <!-- <h2 class="text-center mt-5">Tutti gli appartamenti</h2> -->
         <p v-if="apartments.length === 1" class="text-info text-center mt-3">
             È stato trovato {{ apartments.length }} appartamento.
@@ -75,7 +75,10 @@ export default {
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
             <SingleApartment v-for="apartment in apartments" :key="apartment.id" :apartmentInfo="apartment" :loading="loading"></SingleApartment>
         </div>
-        <AppSponsor></AppSponsor>
+        <div class="col-12">
+            <h1 class="text-center display-3 text-nowrap my-4 text-black ">Appartamenti in vista</h1>
+        </div>
+        <AppSponsor class=""></AppSponsor>
     </div>
 </template>
 
@@ -90,9 +93,10 @@ export default {
     .container-fluid{
         padding-left: 20px;
         padding-right: 20px;
+        padding-top: 20px;
     }
     .custom{
-     margin-top: 50px;
+     margin-top: 120px;
      width:90% ;
     }
 }

@@ -140,6 +140,6 @@ export default {
 }
 
 .sponsor{
-    border: 4px solid rgb(111, 12, 12);
+    border: 6px solid rgba(28, 85, 255, 0.921);
 }
 </style>

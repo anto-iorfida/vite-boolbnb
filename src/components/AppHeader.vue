@@ -3,29 +3,38 @@ export default {
     name: "AppHeader",
     data() {
         return {
-
+              logo:'bool.png'
         }
-    }
+    },
+    methods: {
+        getImageUrl(logo) {
+            return new URL('../assets/img/' + logo, import.meta.url).href;
+            }
+        },
 }
 </script>
 
 <template>
 
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg my-bg-nav">
         <div class="container-fluid fw-bold">
-            <span><a class="navbar-brand text rounded-4 px-3" href="/">BOOLBNB</a></span>
+            <span class="logo-header">
+                <a class="navbar-brand px-3" href="/">
+                 <img  :src="getImageUrl(logo)" :alt="logo">
+                </a>
+            </span>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="text-light"><i class="fa-solid fa-bars"></i></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto fw-bold  d-flex gap-2 rounded-pill">
+                <ul class="navbar-nav ms-auto fw-bold d-flex gap-2 mt-2 fs-5">
                     <li class="nav-item">
-                        <router-link class="nav-link active text rounded-4 px-3 py-1" aria-current="page"
+                        <router-link class="nav-link active text px-3 py-1 rounded-3" aria-current="page"
                             :to="{ name: 'home' }">Home</router-link>
                     </li>
                     <li class="nav-item ">
-                        <router-link class="nav-link active text rounded-4 px-3 py-1" aria-current="page"
+                        <router-link class="nav-link active text  px-3 py-1 rounded-3" aria-current="page"
                             :to="{ name: 'about' }">About</router-link>
                     </li>
                     <!-- <li class="nav-item">
@@ -50,16 +59,29 @@ nav {
     /* Ensure it stays above the video */
 }
 
-li{
+li {
     color: inherit;
 }
 
-.text{
+.text {
     color: white !important;
     background-color: #000000ad;
 }
-.text:hover{
-    transition:0.6s;
+
+.navbar-toggler {
+    background-color: #000000ad;
+}
+
+.text:hover,
+.navbar-toggler:hover {
+    transition: 0.6s;
     background-color: #000000;
+}
+.logo-header img{
+    height: 100px;
+}
+.my-bg-nav{
+    background: rgb(66,66,66);
+    background: linear-gradient(180deg, rgba(66,66,66,0.709296218487395) 2%, rgba(255,255,255,0) 42%);
 }
 </style>

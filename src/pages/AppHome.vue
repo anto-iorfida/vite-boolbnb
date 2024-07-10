@@ -1,16 +1,19 @@
 <template>
-    <div class="my-container-home">
-      <!-- Video Background -->
-      <video src="/public/3094026-uhd_3840_2160_30fps.mp4" autoplay loop playsinline muted></video>
-  
-      <!-- Transparent Header -->
-      <div>
-        <h2 class="text-center text-white mt-5">Exploring <span>BollBnB</span></h2>
-      </div>
+  <div class="my-container-home">
+    <!-- Video Background -->
+    <video src="/public/3094026-uhd_3840_2160_30fps.mp4" autoplay loop playsinline muted></video>
 
-      <!-- Page Content --->
-      <div class="container">
-        <!-- <div class="description">
+    <!-- Transparent Header -->
+    <!-- <div>
+        <h2 class="text-center text-white mt-5">Exploring <span>BollBnB</span></h2>
+      </div> -->
+
+    <!-- Page Content --->
+    <div class="container">
+
+      <a href="#sponsor"><i id="arrow-down" class="fa-solid fa-arrow-down"></i></a>
+
+      <!-- <div class="description">
           <p>
             Discover a mesmerizing jungle, where lush green foliage embraces the landscape, and vibrant wildlife thrives in harmony. The dense canopy casts a symphony of shadows, creating an immersive experience that transports you into nature's enchanting realm. Navigate through the intricate network of towering trees, each telling a tale of resilience and growth.
           </p>
@@ -20,146 +23,180 @@
           </p>
         </div>
    -->
-        <!-- Existing Components -->
-        <!-- <AppHero class="ms-position-rel"></AppHero> -->
-        <SearchBar class="ms-position-abs"></SearchBar>
-      </div>
-     
+      <!-- Existing Components -->
+      <!-- <AppHero class="ms-position-rel"></AppHero> -->
+      <SearchBar class="ms-position-abs"></SearchBar>
     </div>
-    <section >
-      <AppSponsor></AppSponsor>
-    </section>
-  </template>
-  
-  <script>
-  import AppHero from '../components/AppHero.vue';
-  import SearchBar from '../components/SearchBar.vue';
+  </div>
+  <section id="sponsor" class="mt-5">
+    <div class="container-fluid z-2 my-bg-sponsor-list">
+      <div class="">
+        <div class="col-12">
+          <h1 class="text-center display-3 text-nowrap my-4 text-white pt-3">Appartamenti in vista</h1>
+        </div>
+        <AppSponsor></AppSponsor>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script>
+import AppHero from '../components/AppHero.vue';
+import SearchBar from '../components/SearchBar.vue';
 import AppSponsor from '../components/AppSponsor.vue';
-  
-  export default {
-    name: 'AppHome',
-    components: {
-      AppHero,
-      SearchBar,
-      AppSponsor,
-    },
+
+export default {
+  name: 'AppHome',
+  components: {
+    AppHero,
+    SearchBar,
+    AppSponsor,
+  },
+}
+</script>
+
+<style scoped lang='scss'>
+.my-container-home {
+  height: calc(100vh);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+  overflow: hidden;
+  /* Prevent scrollbars */
+}
+
+video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+
+
+
+// .description {
+//   position: absolute;
+//   bottom: 2%;
+//   width: 50%;
+//   left: 50%;
+//   transform: translateX(-50%);
+//   background-color: #000;
+//   color: #fff;
+//   border-radius: 20px;
+//   opacity: 0.7;
+//   padding: 1.5rem;
+//   z-index: 1;
+// }
+
+// .description p {
+//   text-align: justify;
+//   max-width: 42rem;
+//   margin-inline: auto;
+//   line-height: 1.5;
+// }
+
+// .description a {
+//   color: #fff;
+//   text-underline-offset: 1.8px;
+// }
+
+.ms-position-rel {
+  position: relative;
+}
+
+.ms-position-abs {
+  width: 50%;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#arrow-down {
+  position: absolute;
+  color: black;
+  font-size: 50px;
+  font-weight: 900;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#arrow-down:hover {
+  font-size: 60px;
+}
+
+.my-bg-sponsor-list {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(180deg, rgba(1, 1, 1, 0) 0%, rgba(1, 1, 1, 0.113) 5%, rgba(33, 37, 41, 0.684) 100%);
+}
+
+@media screen and (max-width: 1200px) {
+  .description {
+    position: absolute;
+    width: 91vw;
+    bottom: 0;
+    border-radius: 20px 20px 0 0;
+    margin: auto;
+    padding: 0.6rem 1.5rem;
   }
-  </script>
-  
-  <style scoped lang='scss'>
-  .my-container-home{
-    height: calc(100vh - 48px);
+}
+
+@media screen and (max-width: 768px) {
+
+  .description {
+    width: 80%;
+    padding: 1rem;
   }
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Raleway', sans-serif;
-    overflow: hidden; /* Prevent scrollbars */
-  }
-  
-  video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -1;
-  }
-  
-  
-  div span {
-    font-weight: 800;
-    font-size: 6rem;
-    display: block;
-  }
-  
-  
-  // .description {
-  //   position: absolute;
-  //   bottom: 2%;
-  //   width: 50%;
-  //   left: 50%;
-  //   transform: translateX(-50%);
-  //   background-color: #000;
-  //   color: #fff;
-  //   border-radius: 20px;
-  //   opacity: 0.7;
-  //   padding: 1.5rem;
-  //   z-index: 1;
-  // }
-  
-  // .description p {
-  //   text-align: justify;
-  //   max-width: 42rem;
-  //   margin-inline: auto;
-  //   line-height: 1.5;
-  // }
-  
-  // .description a {
-  //   color: #fff;
-  //   text-underline-offset: 1.8px;
-  // }
-  
-  .ms-position-rel {
-    position: relative;
-  }
-  
+
   .ms-position-abs {
-    width: 50%;
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #arrow-down {
+    position: absolute;
+    color: black;
+    font-size: 50px;
+    font-weight: 900;
+    bottom: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .ms-position-abs {
+    width: 55%;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  
-  @media screen and (max-width: 1200px) {
-    .description {
-      position: absolute;
-      width: 91vw;
-      bottom: 0;
-      border-radius: 20px 20px 0 0;
-      margin: auto;
-      padding: 0.6rem 1.5rem;
-    }
+
+  header span {
+    font-size: 2.5rem;
   }
-  
-  @media screen and (max-width: 768px) {
-    header h1 {
-      font-size: 1.25rem;
-    }
-    
-    header span {
-      font-size: 4rem;
-    }
-    
-    .description {
-      width: 80%;
-      padding: 1rem;
-    }
-    
-    .ms-position-abs {
-      width: 80%;
-    }
+
+  .description {
+    width: 90%;
+    padding: 0.5rem;
   }
-  
-  @media screen and (max-width: 480px) {
-    header h1 {
-      font-size: 1rem;
-    }
-    
-    header span {
-      font-size: 2.5rem;
-    }
-    
-    .description {
-      width: 90%;
-      padding: 0.5rem;
-    }
-    
-    .ms-position-abs {
-      width: 90%;
-    }
+
+  .ms-position-abs {
+    width: 90%;
   }
-  </style>
-  
+
+  html,
+  body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+}
+</style>

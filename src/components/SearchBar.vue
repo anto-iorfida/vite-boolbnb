@@ -100,6 +100,9 @@ export default {
 
 <template>
     <div class="text-center search-bar-container text-center p-4 mx-auto custom rounded-4">
+        <div class="mb-4 text-black fw-bolder">
+            <h3>Cerca un'appartamento</h3>
+        </div>
         <div class="row align-items-center gap-2 gap-md-0">
             <div class="col-12 col-md-6">
                 <label class="form-label fs-5">

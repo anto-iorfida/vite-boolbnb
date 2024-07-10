@@ -35,11 +35,7 @@ export default {
 </script>
 
 <template>
-    <div class="container-fluid container-md">
-
-
-        <h2 class="text-center my-4">Appartamenti in vista</h2>
-
+    <div class="container-fluid container-md pt-3">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
             <SingleApartment v-for="apartment in apartments" :key="apartment.id" :apartmentInfo="apartment"
                 :loading="loading"></SingleApartment>
