@@ -9,9 +9,17 @@
       </div> -->
 
     <!-- Page Content --->
-    <div class="container">
+    <div class="container h-100">
 
-      <a href="#sponsor"><i id="arrow-down" class="fa-solid fa-arrow-down"></i></a>
+      <div class="h-100 d-flex align-items-end justify-content-center my-container-arrow">
+        <a href="#sponsor" class=" fs-1 text-decoration-none my-a-link">
+          <div class="d-flex flex-column justify-content-center align-items-center my-arrow-down">
+            <i class="fa-solid fa-arrow-down my-arrow-down">
+            </i>
+            <h5 class="text-center my-arrow-down">Clicca per vedere i nostri Appartamenti</h5>
+          </div>
+        </a>
+      </div>
 
       <!-- <div class="description">
           <p>
@@ -118,20 +126,16 @@ video {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-#arrow-down {
-  position: absolute;
+i.my-arrow-down{
+  font-size: 40px;
   color: black;
-  font-size: 50px;
-  font-weight: 900;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+}
+h5.my-arrow-down{
+  font-size: 40px;
+  font-weight: 600;
+  color: black;
 }
 
-#arrow-down:hover {
-  font-size: 60px;
-}
 
 .my-bg-sponsor-list {
   background: rgb(255, 255, 255);
@@ -162,16 +166,10 @@ video {
 }
 
 @media screen and (max-width: 480px) {
-  #arrow-down {
-    position: absolute;
-    color: black;
-    font-size: 50px;
-    font-weight: 900;
-    bottom: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
 
+  h5.my-arrow-down{
+    font-size: 20px;
+  }
   .ms-position-abs {
     width: 55%;
     position: absolute;

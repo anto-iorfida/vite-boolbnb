@@ -178,10 +178,10 @@ export default {
                         <h6 v-if="apartment.visibility == 1">Appartamento disponibile </h6>
                     </blockquote>
                     <div>
-                        <h5>Questi sono le caratteristiche complete dell'appartamento :</h5>
-                        <div class="row row-cols-6">
-                            <div class="col" v-if="apartment.number_baths">
-                                <div class="card text-center p-1 ">
+                        <h5 class="mt-2">Questi sono le caratteristiche dell'appartamento :</h5>
+                        <div class="row gy-3">
+                            <div class="col-4 col-md-3" v-if="apartment.number_baths">
+                                <div class="card py-2 py-md-5 text-center p-1">
                                     <div>
                                         <div>
                                             <i class="fa-solid fa-bath"></i>
@@ -193,8 +193,8 @@ export default {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col" v-if="apartment.number_beds">
-                                <div class="card text-center p-1 ">
+                            <div class="col-4 col-md-3" v-if="apartment.number_beds">
+                                <div class="card py-2 py-md-5 text-center p-1">
                                     <div>
                                         <div>
                                             <i class="fa-solid fa-bed"></i>
@@ -206,8 +206,8 @@ export default {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col" v-if="apartment.number_rooms">
-                                <div class="card text-center p-1 ">
+                            <div class="col-4 col-md-3" v-if="apartment.number_rooms">
+                                <div class="card py-2 py-md-5 text-center p-1 ">
                                     <div>
                                         <div>
                                             <i class="fa-solid fa-house"></i>
@@ -219,8 +219,8 @@ export default {
                                     </div>
                                 </div>
                             </div>
-                            <div class="col " v-if="apartment.square_meters">
-                                <div class="card text-center p-1 ">
+                            <div class="col-4 col-md-3" v-if="apartment.square_meters">
+                                <div class="card py-2 py-md-5 text-center p-1 ">
                                     <div>
                                         <div>
                                             <i class="fa-solid fa-ruler-combined"></i>
@@ -237,7 +237,8 @@ export default {
                 </div>
             </div>
             <!-- ---------------------------------------- -->
-            <div id="map" class="rounded my-5 "></div>
+             <div class="mt-5"><h5>Qui è dove sarai!</h5></div>
+            <div id="map" class="rounded rounded-5"></div>
             <!-- ------------------------------------------ -->
 
             <div class="mt-5">
