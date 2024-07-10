@@ -1,3 +1,27 @@
+<script>
+import AppHero from '../components/AppHero.vue';
+import SearchBar from '../components/SearchBar.vue';
+import AppSponsor from '../components/AppSponsor.vue';
+
+export default {
+  name: 'AppHome',
+  components: {
+    AppHero,
+    SearchBar,
+    AppSponsor,
+  },
+  mounted() {
+    // Inizia il video quando il componente viene montato
+    const video = this.$refs.videoPlayer;
+    if (video) {
+      video.play().catch(error => {
+        console.error('Errore nel riprodurre il video:', error);
+      });
+    }
+  }
+}
+</script>
+
 <template>
   <div class="my-container-home">
     <!-- Video Background -->
@@ -47,21 +71,6 @@
     </div>
   </section>
 </template>
-
-<script>
-import AppHero from '../components/AppHero.vue';
-import SearchBar from '../components/SearchBar.vue';
-import AppSponsor from '../components/AppSponsor.vue';
-
-export default {
-  name: 'AppHome',
-  components: {
-    AppHero,
-    SearchBar,
-    AppSponsor,
-  },
-}
-</script>
 
 <style scoped lang='scss'>
 .my-container-home {

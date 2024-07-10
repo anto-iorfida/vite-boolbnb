@@ -39,7 +39,7 @@ export default {
 
     // Calcola gli indici visibili per i numeri di pagina
     visiblePages() {
-      const pageCount = Math.min(10, this.totalPages); // Mostra al massimo 10 numeri di pagina
+      const pageCount = Math.min(5, this.totalPages); // Mostra al massimo 10 numeri di pagina
       return Array.from({ length: pageCount }, (_, index) => this.startIndex + index);
     },
 
