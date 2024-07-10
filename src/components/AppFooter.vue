@@ -3,9 +3,19 @@ export default {
     name: "AppFooter",
     data() {
         return {
-
+        
+            davide:'davide.jpeg',
+            mattia:'mattia.jpeg',
+            casimiro:'casimiro.jpeg',
+            antonino:'antonino.jpeg'
+        
         }
-    }
+    },
+    methods: {
+        getImageUrl(logo) {
+            return new URL('../assets/img/' + logo, import.meta.url).href;
+            }
+        },
 }
 </script>
 
@@ -23,7 +33,7 @@ export default {
                 <!--Grid row-->
                 <div class="row">
                     <!-- Grid column -->
-                    <div class="col-md-2 col-lg-3 col-xl-2 mx-auto mt-3">
+                    <div class="col-md-6 col-lg-3 col-xl-2 mx-auto mt-3">
                         <h6 class="text-uppercase mb-4 font-weight-bold">Team 4</h6>
                         <p>
                             Il team di sviluppatori di BoolBnB è composto da professionisti che, grazie al
@@ -39,21 +49,26 @@ export default {
                     <hr class="w-100 clearfix d-md-none" />
 
                     <!-- Grid column -->
-                    <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                        <h6 class="text-uppercase mb-4 font-weight-bold">Partecipanti</h6>
-                        <p><a href="https://www.linkedin.com/in/davide-tessari-535465281" class="text-white fs-5" target="_blank">Davide Tassari</a></p>
-                        <p><a href="https://www.linkedin.com/in/mattia-giarrusso-b59652228" class="text-white fs-5" target="_blank">Mattia Giarrusso</a></p>
-                        <p><a href="https://www.linkedin.com/in/casimiro-moliterni-9a7322281/" target="_blank" class="text-white fs-5">Casimiro Moliterni</a></p>
-                        <p><a href="https://www.linkedin.com/in/antonino-iorfida-4723a72ba" target="_blank" class="text-white fs-5">Antonino Iorfida</a></p>
+                    <div class="col-md-6 col-lg-3 col-xl-3 mx-auto mt-3">
+                        <h6 class="text-uppercase mb-4 font-weight-bold">sviluppatori Del Sito</h6>
+                        <p>
+                            <img :src="getImageUrl(davide)" style="height: 50px;">
+                            <a href="https://www.linkedin.com/in/davide-tessari-535465281" class="text-white fs-5" target="_blank">Davide Tassari</a></p>
+                        <p>
+                            <img :src="getImageUrl(mattia)" style="height: 50px;"><a href="https://www.linkedin.com/in/mattia-giarrusso-b59652228" class="text-white fs-5" target="_blank">Mattia Giarrusso</a></p>
+                        <p>
+                            <img :src="getImageUrl(casimiro)" style="height: 50px;"><a href="https://www.linkedin.com/in/casimiro-moliterni-9a7322281/" target="_blank" class="text-white fs-5">Casimiro Moliterni</a></p>
+                        <p>
+                            <img :src="getImageUrl(antonino)" style="height: 50px;"><a href="https://www.linkedin.com/in/antonino-iorfida-4723a72ba" target="_blank" class="text-white fs-5">Antonino Iorfida</a></p>
                     </div>
                     <!-- Grid column -->
 
                     <hr class="w-100 clearfix d-md-none" />
 
                     <!-- Grid column -->
-                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <div class="col-md-6 col-lg-2 col-xl-2 mx-auto mt-3">
                         <h6 class="text-uppercase mb-4 font-weight-bold">Link utili</h6>
-                        <p><a href="#" class="text-white fs-5">Il tuo Account</a></p>
+                        <p> <a href="#" class="text-white fs-5">Il tuo Account</a></p>
                         <p><a href="#" class="text-white fs-5">Diventa un Affiliato</a></p>
                         <p><a href="#" class="text-white fs-5">Lavora con noi</a></p>
                         <p><a href="#" class="text-white fs-5">Aiuto</a></p>
@@ -63,7 +78,7 @@ export default {
                     <hr class="w-100 clearfix d-md-none" />
 
                     <!-- Grid column -->
-                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <div class="col-md-6 col-lg-3 col-xl-3 mx-auto mt-3">
                         <h6 class="text-uppercase mb-4 font-weight-bold">Contatto</h6>
                         <p><i class="fas fa-home mr-3 fs-5"></i> Italia, EU</p>
                         <p><i class="fas fa-envelope mr-3 fs-5"></i> info@gmail.com</p>
@@ -119,4 +134,9 @@ export default {
     </footer>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+img{
+    border-radius: 100%;
+    margin-right: 10px;
+}
+</style>
