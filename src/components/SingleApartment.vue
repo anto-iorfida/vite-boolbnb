@@ -49,7 +49,7 @@ export default {
                         <div v-for="(image, index) in apartmentInfo.albums" :key="index"
                              :class="{ 'carousel-item': true, active: index === 0 }">
                             <img :src="index === 0 ? apartmentInfo.thumb : image.image"
-                                 class="wrapper-img d-block w-100 rounded-3" :alt="'Slide ' + (index + 1)">
+                                 class="wrapper-img d-block w-100 rounded-4" :alt="'Slide ' + (index + 1)">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button"
@@ -98,7 +98,7 @@ export default {
 .card {
     border: none;
     background-color: #ffffff;
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 .wrapper-img {
@@ -145,6 +145,6 @@ export default {
 }
 
 .sponsor {
-    border: 4px solid rgb(111, 12, 12);
+    border: 4px solid rgb(255, 238, 0);
 }
 </style>
