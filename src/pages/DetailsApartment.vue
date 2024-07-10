@@ -89,10 +89,11 @@ export default {
 </script>
 
 <template>
-    <div class="container">
+    <section class="pt-4">
+        <div class="container-fluid container-md pt-5">
         <div v-if="apartment">
             <div class="mt-5">
-                <div class="card-header mb-2 my-img-wrapper">
+                <div class="card-header mb-3 my-img-wrapper">
                     <h3>{{ apartment.title }}</h3>
                 </div>
                 <div class="card-body">
@@ -142,9 +143,9 @@ export default {
                         </div>
                     </div>
                     
-                    <blockquote class="blockquote mt-4 w-50 border-bottom pb-3">
+                    <blockquote class="blockquote mt-4  border-bottom pb-3">
                         <p class="mb-0"><strong>{{ apartment.address }}</strong> </p>
-                        <div class="mb-4 fs-6">
+                        <div class="mb-4">
                             <span><small>{{ apartment.number_beds }} letti·</small></span>
                             <span><small>{{ apartment.number_rooms }} camere da letto ·</small></span>
                             <span><small>{{ apartment.number_baths }} bagni</small></span>
@@ -264,6 +265,7 @@ export default {
             </div>
         </div>
     </div>
+    </section>
 </template>
 
 <style scoped lang="scss">
@@ -292,5 +294,12 @@ export default {
 
 .carousel img {
     height: 400px;
+}
+
+@media screen and (max-width: 480px) {
+    blockquote{
+        width: 95%;
+        margin: 0 auto;
+    }
 }
 </style>
