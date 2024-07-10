@@ -35,10 +35,15 @@ export default {
 </script>
 
 <template>
-    <h2>Appartamenti in vista</h2>
+    <div class="container-fluid container-md">
 
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
-        <SingleApartment v-for="apartment in apartments" :key="apartment.id" :apartmentInfo="apartment" :loading="loading"></SingleApartment>
+
+        <h2 class="text-center my-4">Appartamenti in vista</h2>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+            <SingleApartment v-for="apartment in apartments" :key="apartment.id" :apartmentInfo="apartment"
+                :loading="loading"></SingleApartment>
+        </div>
     </div>
 </template>
 
