@@ -112,8 +112,13 @@ export default {
                     @input="searchAddress" autocomplete="off" />
                 <ul v-if="suggestions.length" class="list-group mt-2 mb-5 position-absolute my-ul-suggestion">
                     <li v-for="(suggestion, index) in suggestions" :key="index"
-                        class="list-group-item list-group-item-action" @click="selectSuggestion(suggestion)">
-                        {{ suggestion.address.freeformAddress }}
+                        class="list-group-item my-li" @click="selectSuggestion(suggestion)">
+                        <div class="d-flex align-items-center gap-2">
+                          <div class="my-i-location">
+                            <i class="fa-solid fa-location-dot text-black"></i>
+                          </div>
+                          {{ suggestion.address.freeformAddress }}
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -151,7 +156,7 @@ export default {
                 </label>
             </div>
         </div>
-        <button class="btn btn-primary mt-4 w-100 rounded-pill fw-bold fs-5" @click="getSearchApartment">Cerca</button>
+        <button class="btn my-btn mt-4 w-100 rounded-pill fw-bold fs-5" @click="getSearchApartment">Cerca</button>
     </div>
 </template>
 
@@ -171,11 +176,30 @@ export default {
 ul {
     list-style: none;
 }
-
+.my-i-location{
+    height: 40px;
+    width: 40px;
+    background-color: #DDDDDD;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+}
+.my-li:hover{
+    background-color:#70c1b4c7;
+}
 /* Stile generico per l'icona */
 .form-check-label i {
     margin: 0 10px;
     color: rgb(0, 58, 248);
+}
+.my-btn{
+    background-color:#70C1B3;
+}
+.my-btn:hover{
+  background-color:#BF3295;
+  transition: 0.6s;
+  color: white;
 }
 @media (max-width: 575.98px) { 
    .custom{
