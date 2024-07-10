@@ -85,7 +85,7 @@ export default {
 
     <!-- Paginazione per gli appartamenti sponsorizzati -->
     <nav class="mt-4" v-if="apartments.length > 0">
-      <ul class="pagination justify-content-center">
+      <ul class="pagination justify-content-center mb-0 pb-3">
         <li class="page-item" :class="{ disabled: currentPage === 1 }">
           <button class="page-link" @click="prevPage" :disabled="currentPage === 1">Previous</button>
         </li>

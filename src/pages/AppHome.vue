@@ -44,19 +44,6 @@ export default {
           </div>
         </a>
       </div>
-
-      <!-- <div class="description">
-          <p>
-            Discover a mesmerizing jungle, where lush green foliage embraces the landscape, and vibrant wildlife thrives in harmony. The dense canopy casts a symphony of shadows, creating an immersive experience that transports you into nature's enchanting realm. Navigate through the intricate network of towering trees, each telling a tale of resilience and growth.
-          </p>
-          <p class="copyright">
-            Video Credit: Be The Observer on
-            <a href="https://www.pexels.com/video/drone-footage-of-mountain-covered-in-trees-6807924/">pexels.com</a>
-          </p>
-        </div>
-   -->
-      <!-- Existing Components -->
-      <!-- <AppHero class="ms-position-rel"></AppHero> -->
       <SearchBar class="ms-position-abs"></SearchBar>
     </div>
   </div>
@@ -97,34 +84,6 @@ video {
   z-index: -1;
 }
 
-
-
-
-// .description {
-//   position: absolute;
-//   bottom: 2%;
-//   width: 50%;
-//   left: 50%;
-//   transform: translateX(-50%);
-//   background-color: #000;
-//   color: #fff;
-//   border-radius: 20px;
-//   opacity: 0.7;
-//   padding: 1.5rem;
-//   z-index: 1;
-// }
-
-// .description p {
-//   text-align: justify;
-//   max-width: 42rem;
-//   margin-inline: auto;
-//   line-height: 1.5;
-// }
-
-// .description a {
-//   color: #fff;
-//   text-underline-offset: 1.8px;
-// }
 
 .ms-position-rel {
   position: relative;
