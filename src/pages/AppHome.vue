@@ -1,3 +1,18 @@
+<script>
+import AppHero from '../components/AppHero.vue';
+import SearchBar from '../components/SearchBar.vue';
+import AppSponsor from '../components/AppSponsor.vue';
+
+export default {
+  name: 'AppHome',
+  components: {
+    AppHero,
+    SearchBar,
+    AppSponsor,
+  },
+}
+</script>
+
 <template>
   <div class="my-container-home">
     <!-- Video Background -->
@@ -47,21 +62,6 @@
     </div>
   </section>
 </template>
-
-<script>
-import AppHero from '../components/AppHero.vue';
-import SearchBar from '../components/SearchBar.vue';
-import AppSponsor from '../components/AppSponsor.vue';
-
-export default {
-  name: 'AppHome',
-  components: {
-    AppHero,
-    SearchBar,
-    AppSponsor,
-  },
-}
-</script>
 
 <style scoped lang='scss'>
 .my-container-home {
