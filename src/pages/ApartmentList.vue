@@ -60,8 +60,8 @@ export default {
 </script>
 
 <template>
-    <div class="container">
-        <SearchBar @search-apartments="searchApartments"></SearchBar>
+     <SearchBar @search-apartments="searchApartments" class="my-search-list"></SearchBar>
+    <div class="container-fluid container-md">
         <!-- <h2 class="text-center mt-5">Tutti gli appartamenti</h2> -->
         <p v-if="apartments.length === 1" class="text-info text-center mt-3">
             È stato trovato {{ apartments.length }} appartamento.
@@ -77,4 +77,20 @@ export default {
 </template>
 
 <style scoped lang="scss">
+@media (min-width: 575.99px) { 
+    .custom{
+     margin-top: 50px;
+     width:50% ;
+    }
+}
+@media (max-width: 575.98px) { 
+    .container-fluid{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .custom{
+     margin-top: 50px;
+     width:90% ;
+    }
+}
 </style>

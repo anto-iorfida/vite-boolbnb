@@ -34,5 +34,14 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+@media (max-width: 575.98px) { 
+    .ms-position-abs {
+    width: 100%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
+ }
 </style>

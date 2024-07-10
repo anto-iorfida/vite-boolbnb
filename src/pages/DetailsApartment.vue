@@ -132,9 +132,7 @@ export default {
                             </div>
                         </div>
                     </div>
-                    <!-- ---------------------------------------- -->
-                    <div id="map" class="rounded mb-4 "></div>
-                    <!-- ------------------------------------------ -->
+                    
                     <blockquote class="blockquote mt-4 w-50 border-bottom pb-3">
                         <p class="mb-0"><strong>{{ apartment.address }}</strong> </p>
                         <div class="mb-4 fs-6">
@@ -228,6 +226,9 @@ export default {
                     </div>
                 </div>
             </div>
+            <!-- ---------------------------------------- -->
+            <div id="map" class="rounded my-5 "></div>
+            <!-- ------------------------------------------ -->
 
             <div class="mt-5">
                 <div v-if="success" class="alert alert-success">Messaggio inviato con successo!</div>
