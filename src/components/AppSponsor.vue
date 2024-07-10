@@ -78,7 +78,7 @@ export default {
 
 <template>
   <div class="container-fluid container-md pt-3">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-4">
       <SingleApartment v-for="apartment in paginatedApartments" :key="apartment.id" :apartmentInfo="apartment"
                        :loading="loading"></SingleApartment>
     </div>
