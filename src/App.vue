@@ -20,7 +20,7 @@ export default {
     <div id="app">
         <AppHeader />
         <router-view />
-        <AppSponsor />  
+        <!-- <AppSponsor />   -->
         <AppInfo />
         <AppFooter />
     </div>

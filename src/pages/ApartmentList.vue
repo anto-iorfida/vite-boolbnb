@@ -2,6 +2,7 @@
 import axios from 'axios';
 import SingleApartment from '../components/SingleApartment.vue';
 import SearchBar from '../components/SearchBar.vue';
+import AppSponsor from '../components/AppSponsor.vue';
 
 export default {
     name: 'ApartmentList',
@@ -9,6 +10,7 @@ export default {
     components: {
         SingleApartment,
         SearchBar,
+        AppSponsor
     },
 
     data() {
@@ -73,6 +75,7 @@ export default {
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
             <SingleApartment v-for="apartment in apartments" :key="apartment.id" :apartmentInfo="apartment" :loading="loading"></SingleApartment>
         </div>
+        <AppSponsor></AppSponsor>
     </div>
 </template>
 

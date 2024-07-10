@@ -7,10 +7,10 @@
       <header>
         <h1>Exploring <span>BollBnB</span></h1>
       </header>
-  
+
       <!-- Page Content --->
       <div class="container">
-        <div class="description">
+        <!-- <div class="description">
           <p>
             Discover a mesmerizing jungle, where lush green foliage embraces the landscape, and vibrant wildlife thrives in harmony. The dense canopy casts a symphony of shadows, creating an immersive experience that transports you into nature's enchanting realm. Navigate through the intricate network of towering trees, each telling a tale of resilience and growth.
           </p>
@@ -19,23 +19,26 @@
             <a href="https://www.pexels.com/video/drone-footage-of-mountain-covered-in-trees-6807924/">pexels.com</a>
           </p>
         </div>
-  
+   -->
         <!-- Existing Components -->
         <!-- <AppHero class="ms-position-rel"></AppHero> -->
         <SearchBar class="ms-position-abs"></SearchBar>
       </div>
+      <AppSponsor></AppSponsor>
     </div>
   </template>
   
   <script>
   import AppHero from '../components/AppHero.vue';
   import SearchBar from '../components/SearchBar.vue';
+import AppSponsor from '../components/AppSponsor.vue';
   
   export default {
     name: 'AppHome',
     components: {
       AppHero,
       SearchBar,
+      AppSponsor,
     },
   }
   </script>
