@@ -8,7 +8,7 @@
         <h1>Exploring <span>BollBnB</span></h1>
       </header>
   
-      <!-- Page Content -->
+      <!-- Page Content --->
       <div class="container">
         <div class="description">
           <p>
