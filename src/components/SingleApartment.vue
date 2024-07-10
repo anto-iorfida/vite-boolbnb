@@ -15,7 +15,11 @@ export default {
     },
     computed: {
         roundedDistance() {
-            return this.apartmentInfo.distance.toFixed(1);
+            if (this.apartmentInfo.distance !== undefined) {
+                return this.apartmentInfo.distance.toFixed(1);
+            } else {
+                return 'N/A'; // Gestione caso in cui apartmentInfo.distance non è definito
+            }
         }
     },
     methods: {
@@ -32,29 +36,29 @@ export default {
 </script>
 
 <template>
-    <router-link :to="{ name: 'details-apartment', params: { slug: apartmentInfo.slug  } }" class="card-link col my-4">
+    <router-link :to="{ name: 'details-apartment', params: { slug: apartmentInfo.slug } }" class="card-link col my-4">
         <div v-if="!loading" :class="['card', 'h-100', 'd-flex', 'flex-column', { 'sponsor': apartmentInfo.sponsors && apartmentInfo.sponsors.length > 0 }]">
             <div class="w-100 wrapper-img">
                 <div :id="'carousel-' + apartmentInfo.id" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         <button v-for="(image, index) in apartmentInfo.albums" :key="index"
-                            :data-bs-target="'#carousel-' + apartmentInfo.id" :data-bs-slide-to="index"
-                            :class="{ active: index === 0 }"></button>
+                                :data-bs-target="'#carousel-' + apartmentInfo.id" :data-bs-slide-to="index"
+                                :class="{ active: index === 0 }"></button>
                     </div>
                     <div class="carousel-inner">
                         <div v-for="(image, index) in apartmentInfo.albums" :key="index"
-                            :class="{ 'carousel-item': true, active: index === 0 }">
+                             :class="{ 'carousel-item': true, active: index === 0 }">
                             <img :src="index === 0 ? apartmentInfo.thumb : image.image"
-                                class="wrapper-img d-block w-100 rounded-3" :alt="'Slide ' + (index + 1)">
+                                 class="wrapper-img d-block w-100 rounded-3" :alt="'Slide ' + (index + 1)">
                         </div>
                     </div>
                     <button class="carousel-control-prev" type="button"
-                        :data-bs-target="'#carousel-' + apartmentInfo.id" data-bs-slide="prev" @click.stop="prevSlide">
+                            :data-bs-target="'#carousel-' + apartmentInfo.id" data-bs-slide="prev" @click.stop="prevSlide">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
                     <button class="carousel-control-next" type="button"
-                        :data-bs-target="'#carousel-' + apartmentInfo.id" data-bs-slide="next" @click.stop="nextSlide">
+                            :data-bs-target="'#carousel-' + apartmentInfo.id" data-bs-slide="next" @click.stop="nextSlide">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
@@ -67,13 +71,14 @@ export default {
                         <small>Host: {{ apartmentInfo.users.name }}</small>
                     </div>
                     <div>
-                        <small>a {{ roundedDistance  }} Km </small>
+                        <!-- Utilizzo di roundedDistance per visualizzare la distanza -->
+                        <small v-if="apartmentInfo.distance !== undefined">a {{ roundedDistance }} Km </small>
                     </div>
                     <div class="services-offered pb-4">
                         <small class="pt-1">Servizi offerti </small>
                         <div class="services-container mt-3 d-flex gap-2 align-items-center fs-6 fw-semibold">
                             <div v-for="singleservice in apartmentInfo.services" :key="singleservice.id"
-                                class="d-flex align-items-center">
+                                 class="d-flex align-items-center">
                                 <i :class="singleservice.icon"></i>
                             </div>
                         </div>
@@ -139,7 +144,7 @@ export default {
     color: inherit;
 }
 
-.sponsor{
+.sponsor {
     border: 4px solid rgb(111, 12, 12);
 }
 </style>
