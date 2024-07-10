@@ -51,7 +51,7 @@ export default {
     <div class="container-fluid z-2 my-bg-sponsor-list">
       <div class="">
         <div class="col-12">
-          <h1 class="text-center display-3 text-nowrap my-4 text-white pt-3">Appartamenti in vista</h1>
+          <h1 class="text-center display-3 text-nowrap my-4 text-white pt-3 fw-semibold">Appartamenti in prima pagina </h1>
         </div>
         <AppSponsor></AppSponsor>
       </div>

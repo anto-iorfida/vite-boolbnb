@@ -124,49 +124,59 @@ export default {
 </script>
 
 <template>
-  <div class="container-fluid container-md pt-4">
-    <!-- Barra di ricerca degli appartamenti -->
-    <SearchBar @search-apartments="searchApartments" class="my-search-list"></SearchBar>
+  <div class="apartment-list">
+    <div class="container-fluid container-md pt-4">
+      <!-- Barra di ricerca degli appartamenti -->
+      <SearchBar @search-apartments="searchApartments" class="my-search-list"></SearchBar>
 
-    <!-- Conteggio degli appartamenti trovati -->
-    <p v-if="apartments.length === 1" class="text-info text-center mt-3">
-      È stato trovato {{ apartments.length }} appartamento.
-    </p>
-    <p v-else-if="apartments.length > 1" class="text-info text-center mt-3">
-      Sono stati trovati {{ apartments.length }} appartamenti.
-    </p>
+      <!-- Conteggio degli appartamenti trovati -->
+      <p v-if="apartments.length === 1" class="text-info text-center mt-3">
+        È stato trovato {{ apartments.length }} appartamento.
+      </p>
+      <p v-else-if="apartments.length > 1" class="text-info text-center mt-3">
+        Sono stati trovati {{ apartments.length }} appartamenti.
+      </p>
 
-    <!-- Lista degli appartamenti paginata -->
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
-      <SingleApartment v-for="apartment in paginatedApartments" :key="apartment.id" :apartmentInfo="apartment" :loading="loading"></SingleApartment>
+      <!-- Lista degli appartamenti paginata -->
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+        <SingleApartment v-for="apartment in paginatedApartments" :key="apartment.id" :apartmentInfo="apartment" :loading="loading"></SingleApartment>
+      </div>
+
+      <!-- Paginazione -->
+      <nav class="mt-4" v-if="apartments.length > 0">
+        <ul class="pagination justify-content-center">
+          <li class="page-item" :class="{ disabled: currentPage === 1 }">
+            <button class="page-link" @click="prevPage" :disabled="currentPage === 1">Previous</button>
+          </li>
+          <li v-for="page in visiblePages" :key="page" class="page-item" :class="{ active: page === currentPage }">
+            <button class="page-link" @click="setPage(page)">{{ page }}</button>
+          </li>
+          <li class="page-item" :class="{ disabled: currentPage === totalPages }">
+            <button class="page-link" @click="nextPage" :disabled="currentPage === totalPages">Next</button>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Sezione per gli appartamenti in vista -->
+      <div class="col-12">
+        <h1 class="text-center display-3 text-nowrap my-4 text-black">Appartamenti in vista</h1>
+      </div>
+
+      <!-- Componente sponsor -->
+      <AppSponsor class=""></AppSponsor>
     </div>
-
-    <!-- Paginazione -->
-    <nav class="mt-4" v-if="apartments.length > 0">
-      <ul class="pagination justify-content-center">
-        <li class="page-item" :class="{ disabled: currentPage === 1 }">
-          <button class="page-link" @click="prevPage" :disabled="currentPage === 1">Previous</button>
-        </li>
-        <li v-for="page in visiblePages" :key="page" class="page-item" :class="{ active: page === currentPage }">
-          <button class="page-link" @click="setPage(page)">{{ page }}</button>
-        </li>
-        <li class="page-item" :class="{ disabled: currentPage === totalPages }">
-          <button class="page-link" @click="nextPage" :disabled="currentPage === totalPages">Next</button>
-        </li>
-      </ul>
-    </nav>
-
-    <!-- Sezione per gli appartamenti in vista -->
-    <div class="col-12">
-      <h1 class="text-center display-3 text-nowrap my-4 text-black">Appartamenti in vista</h1>
-    </div>
-
-    <!-- Componente sponsor -->
-    <AppSponsor class=""></AppSponsor>
   </div>
 </template>
 
 <style scoped lang="scss">
+.apartment-list {
+  background: no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  background-image: radial-gradient(circle at 50% -20.71%, #eaecd0 0, #e6edd2 6.25%, #e2eed4 12.5%, #deefd6 18.75%, #daf0d9 25%, #d6f1dc 31.25%, #d3f1df 37.5%, #d0f2e2 43.75%, #cdf2e6 50%, #cbf2ea 56.25%, #c9f2ed 62.5%, #c8f2f1 68.75%, #c7f2f4 75%, #c7f2f7 81.25%, #c8f1fa 87.5%, #c9f1fd 93.75%, #cbf0ff 100%);
+}
+
+
 @media (min-width: 575.99px) {
   .custom {
     margin-top: 50px;
