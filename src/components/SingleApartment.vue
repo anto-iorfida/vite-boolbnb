@@ -32,8 +32,8 @@ export default {
 </script>
 
 <template>
-    <router-link :to="{ name: 'details-apartment', params: { slug: apartmentInfo.slug } }" class="card-link col my-4">
-        <div v-if="!loading" class="card h-100 d-flex flex-column">
+    <router-link :to="{ name: 'details-apartment', params: { slug: apartmentInfo.slug  } }" class="card-link col my-4">
+        <div v-if="!loading" :class="['card', 'h-100', 'd-flex', 'flex-column', { 'sponsor': apartmentInfo.sponsors && apartmentInfo.sponsors.length > 0 }]">
             <div class="w-100 wrapper-img">
                 <div :id="'carousel-' + apartmentInfo.id" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
@@ -67,10 +67,10 @@ export default {
                         <small>Host: {{ apartmentInfo.users.name }}</small>
                     </div>
                     <div>
-                        <small>a {{ roundedDistance }} Km</small>
+                        <small>a {{ roundedDistance  }} Km </small>
                     </div>
                     <div class="services-offered pb-4">
-                        <small class="pt-1">Servizi offerti</small>
+                        <small class="pt-1">Servizi offerti </small>
                         <div class="services-container mt-3 d-flex gap-2 align-items-center fs-6 fw-semibold">
                             <div v-for="singleservice in apartmentInfo.services" :key="singleservice.id"
                                 class="d-flex align-items-center">
@@ -137,5 +137,9 @@ export default {
 .card-link:hover {
     text-decoration: none;
     color: inherit;
+}
+
+.sponsor{
+    border: 4px solid rgb(111, 12, 12);
 }
 </style>

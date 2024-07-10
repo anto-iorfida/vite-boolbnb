@@ -15,16 +15,7 @@ export default {
         };
     },
     methods: {
-        // getApartmentDetails() {
-        //     axios.get(`http://127.0.0.1:8000/api/apartments/${this.$route.params.slug}`)
-        //         .then((response) => {
-        //             this.apartment = response.data.apartment;
-        //             console.log(response.data.apartment)
-        //         })
-        //         .catch((error) => {
-        //             console.error('Error fetching apartment details:', error);
-        //         });
-        // },
+
         getApartmentDetails() {
             axios.get(`http://127.0.0.1:8000/api/apartments/${this.$route.params.slug}`)
                 .then((response) => {
