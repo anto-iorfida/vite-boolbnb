@@ -13,11 +13,11 @@ export default {
             required: true
         }
     },
-    computed: {
-        roundedDistance() {
-            return this.apartmentInfo.distance.toFixed(1);
-        }
-    },
+    // computed: {
+    //     roundedDistance() {
+    //         return this.apartmentInfo.distance.toFixed(1);
+    //     }
+    // },
     methods: {
         prevSlide() {
             const carousel = new bootstrap.Carousel(document.getElementById('carousel-' + this.apartmentInfo.id));

@@ -1,6 +1,6 @@
 <script>
 import axios from 'axios';
-import SingleApartment from '../components/SingleApartment.vue';
+import SingleApartment from './SingleApartment.vue';
 
 export default {
     name: "AppSponsor",
@@ -21,9 +21,9 @@ export default {
             this.loading = true;
             try {
                 const response = await axios.get('http://127.0.0.1:8000/api/sponsored-apartments');
-                console.log('API Response:', response.data); // Aggiungi log per la risposta API<---------------------------------------------------------
+                console.log('API Response:', response.data.result); // Aggiungi log per la risposta API<---------------------------------------------------------
                 this.apartments = response.data.result;
-                
+
             } catch (error) {
                 console.error('Errore durante il fetch degli appartamenti:', error);
             } finally {
@@ -35,16 +35,10 @@ export default {
 </script>
 
 <template>
-    <div class="container my-5">
-        <h2>Appartamenti in vista</h2>
-        <!-- <div v-if="loading" class="text-center">Loading...</div> -->
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
-            <!-- <SingleApartment v-for="apartment in apartments" :key="apartment.id" :apartmentInfo="apartment" :loading="loading"></SingleApartment> -->
+    <h2>Appartamenti in vista</h2>
 
-            <div v-for="apartment in apartments" :key="apartment.id">
-                <p>{{ apartment.sponsors }}</p>
-            </div>
-        </div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+        <SingleApartment v-for="apartment in apartments" :key="apartment.id" :apartmentInfo="apartment" :loading="loading"></SingleApartment>
     </div>
 </template>
 
