@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <div class="my-container-home">
       <!-- Video Background -->
       <video src="/public/3094026-uhd_3840_2160_30fps.mp4" autoplay loop playsinline muted></video>
   
       <!-- Transparent Header -->
-      <header>
-        <h1>Exploring <span>BollBnB</span></h1>
-      </header>
+      <div>
+        <h2 class="text-center text-white mt-5">Exploring <span>BollBnB</span></h2>
+      </div>
 
       <!-- Page Content --->
       <div class="container">
@@ -24,8 +24,11 @@
         <!-- <AppHero class="ms-position-rel"></AppHero> -->
         <SearchBar class="ms-position-abs"></SearchBar>
       </div>
-      <AppSponsor></AppSponsor>
+     
     </div>
+    <section >
+      <AppSponsor></AppSponsor>
+    </section>
   </template>
   
   <script>
@@ -44,6 +47,9 @@ import AppSponsor from '../components/AppSponsor.vue';
   </script>
   
   <style scoped lang='scss'>
+  .my-container-home{
+    height: calc(100vh - 48px);
+  }
   body {
     margin: 0;
     padding: 0;
@@ -61,66 +67,39 @@ import AppSponsor from '../components/AppSponsor.vue';
     z-index: -1;
   }
   
-  header {
-    position: sticky;
-    top: 80px; /* Below the nav bar */
-    left: 0;
-    width: 100%;
-    height: 80px; /* Set the header height */
-    background-color: transparent;
-    color: #fff;
-    text-align: center;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
   
-  header h1 {
-    font-weight: 500;
-    font-size: 1.75rem;
-    line-height: 1;
-  }
-  
-  header span {
+  div span {
     font-weight: 800;
-    font-size: 7rem;
+    font-size: 6rem;
     display: block;
   }
   
-  .container {
-    position: relative;
-    width: 100%;
-    height: calc(100vh - 160px); /* Adjust for the fixed header and nav bar height */
-    overflow: hidden;
-    margin-top: 160px; /* Adjust for the fixed header and nav bar height */
-  }
   
-  .description {
-    position: absolute;
-    bottom: 2%;
-    width: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #000;
-    color: #fff;
-    border-radius: 20px;
-    opacity: 0.7;
-    padding: 1.5rem;
-    z-index: 1;
-  }
+  // .description {
+  //   position: absolute;
+  //   bottom: 2%;
+  //   width: 50%;
+  //   left: 50%;
+  //   transform: translateX(-50%);
+  //   background-color: #000;
+  //   color: #fff;
+  //   border-radius: 20px;
+  //   opacity: 0.7;
+  //   padding: 1.5rem;
+  //   z-index: 1;
+  // }
   
-  .description p {
-    text-align: justify;
-    max-width: 42rem;
-    margin-inline: auto;
-    line-height: 1.5;
-  }
+  // .description p {
+  //   text-align: justify;
+  //   max-width: 42rem;
+  //   margin-inline: auto;
+  //   line-height: 1.5;
+  // }
   
-  .description a {
-    color: #fff;
-    text-underline-offset: 1.8px;
-  }
+  // .description a {
+  //   color: #fff;
+  //   text-underline-offset: 1.8px;
+  // }
   
   .ms-position-rel {
     position: relative;
@@ -129,7 +108,7 @@ import AppSponsor from '../components/AppSponsor.vue';
   .ms-position-abs {
     width: 50%;
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
