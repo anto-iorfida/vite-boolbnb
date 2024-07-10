@@ -10,6 +10,15 @@ export default {
     SearchBar,
     AppSponsor,
   },
+  mounted() {
+    // Inizia il video quando il componente viene montato
+    const video = this.$refs.videoPlayer;
+    if (video) {
+      video.play().catch(error => {
+        console.error('Errore nel riprodurre il video:', error);
+      });
+    }
+  }
 }
 </script>
 
