@@ -9,7 +9,7 @@
       </div> -->
 
     <!-- Page Content --->
-    <div class="container h-100">
+    <div class="container h-100 my-container-general">
 
       <div class="h-100 d-flex align-items-end justify-content-center my-container-arrow">
         <a href="#sponsor" class=" fs-1 text-decoration-none my-a-link">
@@ -67,7 +67,9 @@ export default {
 .my-container-home {
   height: calc(100vh);
 }
-
+.my-container-general{
+  padding-bottom: 130px;
+}
 body {
   margin: 0;
   padding: 0;
@@ -122,7 +124,7 @@ video {
 .ms-position-abs {
   width: 50%;
   position: absolute;
-  top: 60%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -166,7 +168,9 @@ h5.my-arrow-down{
 }
 
 @media screen and (max-width: 480px) {
-
+  .my-container-general{
+  padding-bottom: 35px;
+}
   h5.my-arrow-down{
     font-size: 20px;
   }
