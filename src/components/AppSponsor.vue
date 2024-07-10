@@ -1,52 +1,45 @@
 <script>
-    export default {
-        name: "AppSponsor",
-        data(){
-                return{
+import axios from 'axios';
+import SingleApartment from './SingleApartment.vue';
 
-                }
-            } 
+export default {
+    name: "AppSponsor",
+    components: {
+        SingleApartment,
+    },
+    data() {
+        return {
+            apartments: [],
+            loading: false,
+        };
+    },
+    created() {
+        this.fetchApartments();
+    },
+    methods: {
+        async fetchApartments() {
+            this.loading = true;
+            try {
+                const response = await axios.get('http://127.0.0.1:8000/api/sponsored-apartments');
+                console.log('API Response:', response.data.result); // Aggiungi log per la risposta API<---------------------------------------------------------
+                this.apartments = response.data.result;
+
+            } catch (error) {
+                console.error('Errore durante il fetch degli appartamenti:', error);
+            } finally {
+                this.loading = false;
+            }
         }
+    }
+};
 </script>
 
 <template>
-<!-- <div class="container my-5">
-    <h2 class="text-center mb-4">APPARTAMENTI DA SPONSORIZZARE</h2>
-    <div class="row">
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="https://www.rodaonline.com/wp-content/uploads/C_IMG_miami_beach_03_gallery_20220330-900x599.jpg" class="card-img-top" alt="Appartamento 1">
-                <div class="card-body">
-                    <h5 class="card-title">Appartamento 1</h5>
-                    <p class="card-text">Includes stay in luxury suite and more...</p>
-                    <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="https://a0.muscache.com/im/pictures/miso/Hosting-51770572/original/9e985f16-2048-4704-9841-0691a0ec7ebe.jpeg" class="card-img-top" alt="Appartamento 2">
-                <div class="card-body">
-                    <h5 class="card-title">Appartamento 2</h5>
-                    <p class="card-text">Includes stay in deluxe room and more...</p>
-                    <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="https://www.villeecasali.com/wp-content/uploads/2019/03/casa-miami-1-1024x710.jpg" class="card-img-top" alt="Appartamento 3">
-                <div class="card-body">
-                    <h5 class="card-title">Appartamento 3</h5>
-                    <p class="card-text">Includes stay in premium suite and more...</p>
-                    <a href="#" class="btn btn-primary">Read More</a>
-                </div>
-            </div>
-        </div>
+    <h2>Appartamenti in vista</h2>
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+        <SingleApartment v-for="apartment in apartments" :key="apartment.id" :apartmentInfo="apartment" :loading="loading"></SingleApartment>
     </div>
-</div> -->
 </template>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

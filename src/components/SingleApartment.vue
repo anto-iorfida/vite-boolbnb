@@ -13,11 +13,6 @@ export default {
             required: true
         }
     },
-    computed: {
-        roundedDistance() {
-            return this.apartmentInfo.distance.toFixed(1);
-        }
-    },
     methods: {
         contactOwner() {
             this.$router.push({ name: 'contact-owner', params: { apartmentId: this.apartmentInfo.id } });
