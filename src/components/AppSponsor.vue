@@ -37,6 +37,22 @@ export default {
       this.currentPage = page;
     },
 
+    // Vai alla pagina precedente
+    prevPage() {
+      if (this.currentPage > 1) {
+        this.currentPage--;
+
+      }
+    },
+
+    // Vai alla pagina successiva
+    nextPage() {
+      if (this.currentPage < this.totalPages) {
+        this.currentPage++;
+
+      }
+    },
+
     // Funzione per scrollare la pagina all'inizio
     scrollToTop() {
       window.scrollTo({
@@ -101,5 +117,5 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-
+/* Add your styles here */
 </style>
