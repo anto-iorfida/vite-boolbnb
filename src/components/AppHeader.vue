@@ -55,8 +55,8 @@ nav {
     left: 0;
     width: 100%;
     background-color: transparent;
-    z-index: 2;
-    /* Ensure it stays above the video */
+    z-index: 222;
+
 }
 
 li {
@@ -64,8 +64,7 @@ li {
 }
 
 .text {
-    color: white !important;
-    background-color: #000000ad;
+    background-color: #70c1b4;
 }
 
 .navbar-toggler {
@@ -74,8 +73,9 @@ li {
 
 .text:hover,
 .navbar-toggler:hover {
+    background-color:#BF3295;
     transition: 0.6s;
-    background-color: #000000;
+    color: white;
 }
 .logo-header img{
     height: 100px;

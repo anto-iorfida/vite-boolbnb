@@ -124,7 +124,7 @@ export default {
             </div>
             <div class="col-12 col-md-6">
                 <label for="radius" class="form-label fs-5">
-                    <strong><i class="fa-solid fa-map-location-dot"></i> Raggio (km)</strong>
+                    <strong class="text-nowrap" ><i class="fa-solid fa-map-location-dot"></i> Raggio (km)</strong>
                 </label>
                 <input type="number" class="form-control fs-5 fw-semibold rounded-pill" id="radius" v-model.number="radius" />
             </div>
@@ -168,7 +168,7 @@ export default {
 .custom {
     max-width: 70%;
     background: #ffffff2a;
-    box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     backdrop-filter: blur(16px) saturate(120%);
     border: none;
 }
@@ -177,8 +177,8 @@ ul {
     list-style: none;
 }
 .my-i-location{
-    height: 40px;
-    width: 40px;
+    min-height: 40px;
+    min-width: 40px;
     background-color: #DDDDDD;
     display: flex;
     align-items: center;
@@ -205,5 +205,8 @@ ul {
    .custom{
     max-width: 80%;
    }
+}
+.papero{
+    z-index: 900!important;
 }
 </style>

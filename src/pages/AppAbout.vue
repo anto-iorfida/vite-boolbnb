@@ -10,13 +10,13 @@ export default {
 <template>
     <div class="container mt-4">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 col-lg-12">
                 <h2>Informazioni su BoolBnB</h2>
                 <p>
                     BoolBnB è una piattaforma di punta per trovare alloggi unici in tutto il mondo. Che tu stia cercando una casetta accogliente nei boschi, un lussuoso appartamento in città o una villa sulla spiaggia, BoolBnB connette viaggiatori con host che offrono esperienze diverse e indimenticabili. La nostra missione è rendere il viaggio accessibile e piacevole per tutti, fornendo una vasta gamma di opzioni di alloggio e un servizio clienti di prima classe.
                 </p>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 col-lg-12">
                 <div class="accordion accordion-flush" id="accordionFlushExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
