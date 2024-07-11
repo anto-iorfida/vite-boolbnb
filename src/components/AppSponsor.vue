@@ -12,7 +12,7 @@ export default {
       apartments: [],
       loading: false,
       currentPage: 1, // Pagina corrente
-      apartmentsPerPage: 6, // Numero di appartamenti sponsorizzati per pagina
+      apartmentsPerPage: 4, // Numero di appartamenti sponsorizzati per pagina
     };
   },
   created() {
